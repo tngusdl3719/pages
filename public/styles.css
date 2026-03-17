@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "Jalnan2";
-  src: url("./font/Jalnan2/Jalnan2.otf") format("opentype");
+  font-family: "JalnanGothic";
+  src: url("./font/JalnanGothic/JalnanGothic.otf") format("opentype");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -19,7 +19,7 @@
   --accent-strong: #ffb347;
   --accent-soft: rgba(255, 179, 71, 0.16);
   --shadow: 0 24px 80px rgba(0, 0, 0, 0.44);
-  --font-main: "Jalnan2", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-main: "JalnanGothic", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
 }
 
 * {
