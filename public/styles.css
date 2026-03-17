@@ -58,8 +58,7 @@ body::before {
 }
 
 .marquee,
-.game-board,
-.info-card {
+.game-board {
   position: relative;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -77,8 +76,7 @@ body::before {
 }
 
 .marquee::before,
-.game-board::before,
-.info-card::before {
+.game-board::before {
   content: "";
   position: absolute;
   inset: auto auto 0 0;
@@ -91,6 +89,7 @@ body::before {
 
 .marquee-copy {
   align-self: center;
+  min-width: 0;
 }
 
 .eyebrow,
@@ -114,10 +113,24 @@ ul {
 }
 
 h1 {
-  max-width: 11ch;
+  max-width: none;
   margin-bottom: 18px;
   font-size: clamp(2.8rem, 8vw, 5.7rem);
   line-height: 1.12;
+}
+
+.hero-title {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.title-line {
+  display: block;
+}
+
+.title-line + .title-line {
+  margin-top: 0.08em;
 }
 
 h2 {
@@ -134,8 +147,6 @@ h3 {
 
 .intro,
 .prompt,
-.rule-list li,
-.info-copy,
 .answer-movie {
   color: var(--muted);
   font-size: 1rem;
@@ -176,9 +187,6 @@ h3 {
 }
 
 .layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.75fr);
-  gap: 22px;
   margin-top: 22px;
 }
 
@@ -342,35 +350,6 @@ h3 {
   border-color: rgba(255, 179, 71, 0.18);
 }
 
-.side-panel {
-  display: grid;
-  gap: 18px;
-}
-
-.info-card {
-  padding: 22px;
-  border-radius: 28px;
-}
-
-.accent-card {
-  background:
-    linear-gradient(180deg, rgba(255, 133, 82, 0.16), transparent),
-    var(--panel-strong);
-}
-
-.rule-list {
-  padding-left: 20px;
-  margin: 0;
-}
-
-.rule-list li + li {
-  margin-top: 10px;
-}
-
-.info-copy {
-  margin-bottom: 0;
-}
-
 @keyframes screenFade {
   from {
     opacity: 0;
@@ -396,8 +375,7 @@ h3 {
 }
 
 @media (max-width: 960px) {
-  .marquee,
-  .layout {
+  .marquee {
     grid-template-columns: 1fr;
   }
 
@@ -420,7 +398,7 @@ h3 {
 
   .marquee,
   .game-board,
-  .info-card {
+  .game-board {
     border-radius: 26px;
   }
 
@@ -428,8 +406,7 @@ h3 {
     padding: 24px 18px;
   }
 
-  .game-board,
-  .info-card {
+  .game-board {
     padding: 18px;
   }
 
@@ -438,7 +415,6 @@ h3 {
   }
 
   h1 {
-    max-width: none;
     font-size: clamp(2.3rem, 14vw, 4.1rem);
   }
 
