@@ -40,6 +40,7 @@ const quizzes = [
 
 const totalCount = document.querySelector("#total-count");
 const gameStatus = document.querySelector("#game-status");
+const scoreCount = document.querySelector("#score-count");
 const stageTitle = document.querySelector("#stage-title");
 const remainingPill = document.querySelector("#remaining-pill");
 const initialStage = document.querySelector("#initial-stage");
@@ -54,12 +55,15 @@ const answerMeta = document.querySelector("#answer-meta");
 const answerImage = document.querySelector("#answer-image");
 const startButton = document.querySelector("#start-button");
 const answerButton = document.querySelector("#answer-button");
+const correctButton = document.querySelector("#correct-button");
 const nextButton = document.querySelector("#next-button");
 
 const state = {
   pool: [],
   currentQuiz: null,
   round: 0,
+  score: 0,
+  isCurrentScored: false,
 };
 
 const defaultStage = {
@@ -103,6 +107,10 @@ function updateStaticLabels() {
   remainingPill.textContent = getRemainingLabel();
 }
 
+function updateScore({ reveal = false } = {}) {
+  scoreCount.textContent = reveal ? `${state.score}개` : "-";
+}
+
 function resetAnswerPanel() {
   answerPanel.dataset.state = "idle";
   answerPanel.setAttribute("aria-hidden", "true");
@@ -117,6 +125,7 @@ function showQuiz(index) {
   const quiz = quizzes[index];
   state.currentQuiz = quiz;
   state.round += 1;
+  state.isCurrentScored = false;
 
   restoreStage();
   initialTicket.textContent = "Initial Clue";
@@ -128,19 +137,22 @@ function showQuiz(index) {
   resetAnswerPanel();
 
   answerButton.disabled = false;
+  correctButton.disabled = false;
   nextButton.disabled = false;
   startButton.textContent = "처음부터 다시 시작";
 
+  updateScore();
   updateStaticLabels();
 }
 
 function showCompletionState() {
   state.currentQuiz = null;
+  state.isCurrentScored = false;
 
   initialStage.classList.add("finish-state");
-  initialTicket.textContent = "The End";
-  initialClue.textContent = "끝!";
-  initialCopy.textContent = "모든 문제를 사용했습니다. 다시 시작 버튼으로 새 라운드를 시작하세요.";
+  initialTicket.textContent = "Result";
+  initialClue.textContent = `${state.score}개 정답`;
+  initialCopy.textContent = `${quizzes.length}문제 중 ${state.score}문제를 맞혔습니다. 다시 시작 버튼으로 새 라운드를 시작하세요.`;
   stageTitle.textContent = "모든 문제가 끝났습니다";
   prompt.textContent = "새 라운드를 시작하려면 다시 시작 버튼을 눌러 주세요.";
   prompt.hidden = false;
@@ -148,17 +160,21 @@ function showCompletionState() {
   resetAnswerPanel();
 
   answerButton.disabled = true;
+  correctButton.disabled = true;
   nextButton.disabled = true;
   startButton.textContent = "다시 시작";
 
   gameStatus.textContent = "종료";
   remainingPill.textContent = "모든 문제 완료";
+  updateScore({ reveal: true });
 }
 
 function drawRandomQuiz({ reset = false } = {}) {
   if (reset) {
     refillPool();
     state.round = 0;
+    state.score = 0;
+    updateScore();
   }
 
   if (state.pool.length === 0) {
@@ -186,14 +202,27 @@ function revealAnswer() {
   gameStatus.textContent = `정답 공개 ${state.round}`;
 }
 
+function scoreCorrectAnswer() {
+  if (!state.currentQuiz || state.isCurrentScored) {
+    return;
+  }
+
+  state.score += 1;
+  state.isCurrentScored = true;
+  correctButton.disabled = true;
+}
+
 startButton.addEventListener("click", () => {
   drawRandomQuiz({ reset: true });
 });
 
 answerButton.addEventListener("click", revealAnswer);
 
+correctButton.addEventListener("click", scoreCorrectAnswer);
+
 nextButton.addEventListener("click", () => {
   drawRandomQuiz();
 });
 
+updateScore();
 updateStaticLabels();

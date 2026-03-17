@@ -40,8 +40,8 @@
             <strong class="stat-value stat-small" id="game-status">대기 중</strong>
           </article>
           <article class="stat-card">
-            <p class="stat-label">진행 방식</p>
-            <strong class="stat-value stat-small">중복 없이 랜덤</strong>
+            <p class="stat-label">최종 정답 수</p>
+            <strong class="stat-value" id="score-count">-</strong>
           </article>
         </div>
       </header>
@@ -75,6 +75,9 @@
             </button>
             <button class="button secondary" id="answer-button" type="button" disabled>
               정답 보기
+            </button>
+            <button class="button tertiary" id="correct-button" type="button" disabled>
+              정답
             </button>
             <button class="button tertiary" id="next-button" type="button" disabled>
               다른 문제
