@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pages Launchpad</title>
+    <meta
+      name="description"
+      content="Cloudflare Pages에 바로 올릴 수 있는 정적 페이지 스타터입니다."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <p class="eyebrow">Cloudflare Pages Ready</p>
+        <h1>정적 페이지를 바로 배포할 수 있는 시작점</h1>
+        <p class="intro">
+          이 프로젝트는 별도 빌드 없이 <code>public/</code> 디렉터리만 업로드하면
+          서비스할 수 있게 구성했습니다. 페이지 내용을 수정한 뒤 Pages에 연결하면
+          끝입니다.
+        </p>
+        <div class="cta-row">
+          <a class="button primary" href="#deploy">배포 순서 보기</a>
+          <a class="button secondary" href="#files">구성 확인</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel" id="deploy">
+          <div class="panel-header">
+            <p class="section-label">Deploy Flow</p>
+            <h2>Cloudflare Pages 설정값</h2>
+          </div>
+          <div class="grid two-up">
+            <article class="card">
+              <h3>Git 연동 배포</h3>
+              <ul>
+                <li>Framework preset: <strong>None</strong></li>
+                <li>Build command: <strong>비워두기</strong></li>
+                <li>Build output directory: <strong>public</strong></li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>직접 업로드 배포</h3>
+              <ul>
+                <li><code>public/</code> 폴더를 그대로 업로드</li>
+                <li>HTML, CSS 파일만으로 서비스 가능</li>
+                <li>추가 런타임이나 서버 설정 불필요</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel" id="files">
+          <div class="panel-header">
+            <p class="section-label">Project Shape</p>
+            <h2>현재 포함된 파일</h2>
+          </div>
+          <div class="grid three-up">
+            <article class="card">
+              <h3><code>public/index.html</code></h3>
+              <p>메인 랜딩 페이지입니다.</p>
+            </article>
+            <article class="card">
+              <h3><code>public/styles.css</code></h3>
+              <p>페이지 레이아웃과 색상, 반응형 스타일을 담당합니다.</p>
+            </article>
+            <article class="card">
+              <h3><code>public/_headers</code></h3>
+              <p>기본 보안 헤더와 캐시 정책을 설정합니다.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel accent">
+          <div class="panel-header">
+            <p class="section-label">Next Edit</p>
+            <h2>바로 바꿔야 하는 부분</h2>
+          </div>
+          <div class="checklist">
+            <p>1. 제목과 소개 문구를 실제 서비스 내용으로 수정</p>
+            <p>2. 카드와 섹션을 필요한 정보 구조에 맞게 재배치</p>
+            <p>3. 도메인을 연결할 예정이면 Pages에서 Custom domain 추가</p>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
