@@ -57,6 +57,7 @@ const startButton = document.querySelector("#start-button");
 const answerButton = document.querySelector("#answer-button");
 const correctButton = document.querySelector("#correct-button");
 const nextButton = document.querySelector("#next-button");
+const endButton = document.querySelector("#end-button");
 
 const state = {
   pool: [],
@@ -84,15 +85,7 @@ function refillPool() {
 }
 
 function getRemainingLabel() {
-  if (!state.currentQuiz) {
-    return "문제 준비 완료";
-  }
-
-  if (state.pool.length === 0) {
-    return "이번 사이클 마지막 문제";
-  }
-
-  return `남은 문제 ${state.pool.length}개`;
+  return `문제 ${state.round} / ${quizzes.length}`;
 }
 
 function restoreStage() {
@@ -130,9 +123,9 @@ function showQuiz(index) {
   state.isCurrentScored = false;
 
   restoreStage();
-  initialTicket.textContent = "Initial Clue";
+  initialTicket.textContent = "";
   initialClue.textContent = quiz.clue;
-  initialCopy.textContent = "초성을 보고 제목을 먼저 맞혀보세요.";
+  initialCopy.textContent = "";
   stageTitle.textContent = `문제 ${state.round}. 이 초성의 제목은 무엇일까요?`;
   prompt.hidden = true;
 
@@ -141,6 +134,7 @@ function showQuiz(index) {
   answerButton.disabled = false;
   correctButton.disabled = false;
   nextButton.disabled = false;
+  endButton.disabled = false;
   startButton.textContent = "처음부터 다시 시작";
 
   updateScore();
@@ -154,7 +148,7 @@ function showCompletionState() {
   initialStage.classList.add("finish-state");
   initialTicket.textContent = "Result";
   initialClue.textContent = `${state.score}개 정답`;
-  initialCopy.textContent = `${quizzes.length}문제 중 ${state.score}문제를 맞혔습니다. 다시 시작 버튼으로 새 라운드를 시작하세요.`;
+  initialCopy.textContent = `${state.round}문제 진행, ${state.score}개 정답입니다. 다시 시작 버튼으로 새 라운드를 시작하세요.`;
   stageTitle.textContent = "모든 문제가 끝났습니다";
   prompt.textContent = "새 라운드를 시작하려면 다시 시작 버튼을 눌러 주세요.";
   prompt.hidden = false;
@@ -164,10 +158,11 @@ function showCompletionState() {
   answerButton.disabled = true;
   correctButton.disabled = true;
   nextButton.disabled = true;
+  endButton.disabled = true;
   startButton.textContent = "다시 시작";
 
   gameStatus.textContent = "종료";
-  remainingPill.textContent = "모든 문제 완료";
+  remainingPill.textContent = "최종 결과";
   updateScore({ reveal: true });
 }
 
@@ -227,6 +222,8 @@ correctButton.addEventListener("click", scoreCorrectAnswer);
 nextButton.addEventListener("click", () => {
   drawRandomQuiz();
 });
+
+endButton.addEventListener("click", showCompletionState);
 
 updateScore();
 updateStaticLabels();

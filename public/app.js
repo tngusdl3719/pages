@@ -34,6 +34,7 @@ const startButton = document.querySelector("#start-button");
 const answerButton = document.querySelector("#answer-button");
 const correctButton = document.querySelector("#correct-button");
 const nextButton = document.querySelector("#next-button");
+const endButton = document.querySelector("#end-button");
 
 const state = {
   pool: [],
@@ -61,15 +62,7 @@ function refillPool() {
 }
 
 function getRemainingLabel() {
-  if (!state.currentQuiz) {
-    return "문제 준비 완료";
-  }
-
-  if (state.pool.length === 0) {
-    return "이번 사이클 마지막 문제";
-  }
-
-  return `남은 문제 ${state.pool.length}개`;
+  return `문제 ${state.round} / ${quizzes.length}`;
 }
 
 function updateStaticLabels() {
@@ -115,6 +108,7 @@ function showQuiz(index) {
   answerButton.disabled = false;
   correctButton.disabled = false;
   nextButton.disabled = false;
+  endButton.disabled = false;
   startButton.textContent = "처음부터 다시 시작";
 
   updateScore();
@@ -132,7 +126,7 @@ function showCompletionState() {
   placeholder.classList.add("finish-state");
   placeholderTicket.textContent = "Result";
   placeholderTitle.textContent = `${state.score}개 정답`;
-  placeholderCopy.textContent = `${quizzes.length}문제 중 ${state.score}문제를 맞혔습니다. 다시 시작 버튼으로 새 라운드를 시작하세요.`;
+  placeholderCopy.textContent = `${state.round}문제 진행, ${state.score}개 정답입니다. 다시 시작 버튼으로 새 라운드를 시작하세요.`;
   placeholder.hidden = false;
 
   stageTitle.textContent = "모든 문제가 끝났습니다";
@@ -144,10 +138,11 @@ function showCompletionState() {
   answerButton.disabled = true;
   correctButton.disabled = true;
   nextButton.disabled = true;
+  endButton.disabled = true;
   startButton.textContent = "다시 시작";
 
   gameStatus.textContent = "종료";
-  remainingPill.textContent = "모든 문제 완료";
+  remainingPill.textContent = "최종 결과";
   updateScore({ reveal: true });
 }
 
@@ -203,6 +198,8 @@ correctButton.addEventListener("click", scoreCorrectAnswer);
 nextButton.addEventListener("click", () => {
   drawRandomQuiz();
 });
+
+endButton.addEventListener("click", showCompletionState);
 
 updateScore();
 updateStaticLabels();

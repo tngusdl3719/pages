@@ -349,6 +349,11 @@ h3 {
   line-height: 1.8;
 }
 
+.placeholder-ticket:empty,
+.initial-copy:empty {
+  display: none;
+}
+
 .initial-stage {
   position: absolute;
   inset: 0;

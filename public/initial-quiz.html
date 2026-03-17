@@ -24,10 +24,6 @@
             <span class="title-line">드라마/영화</span>
             <span class="title-line">초성게임</span>
           </h1>
-          <p class="intro">
-            초성 힌트를 보고 제목을 먼저 맞혀보세요. 정답 보기 버튼을 누르면
-            제목과 이미지가 함께 공개됩니다.
-          </p>
         </div>
 
         <div class="scoreboard" aria-label="게임 현황">
@@ -53,18 +49,16 @@
               <p class="section-label">Initial Quiz</p>
               <h2 id="stage-title">시작 버튼을 눌러 첫 초성 문제를 뽑아보세요</h2>
             </div>
-            <div class="status-pill" id="remaining-pill">문제 준비 완료</div>
+            <div class="status-pill" id="remaining-pill">문제 0 / 5</div>
           </div>
 
           <div class="screen-frame">
             <div class="screen-glow"></div>
             <img class="scene-image" id="scene-image" alt="" hidden />
             <div class="initial-stage" id="initial-stage">
-              <p class="placeholder-ticket" id="initial-ticket">Initial Clue</p>
+              <p class="placeholder-ticket" id="initial-ticket"></p>
               <p class="initial-clue" id="initial-clue">ㄷㄹ / ㅇㅎ</p>
-              <p class="initial-copy" id="initial-copy">
-                시작 버튼을 누르면 초성 힌트가 여기에 나타납니다.
-              </p>
+              <p class="initial-copy" id="initial-copy"></p>
             </div>
           </div>
 
@@ -83,13 +77,14 @@
             <button class="button tertiary" id="next-button" type="button" disabled>
               다른 문제
             </button>
+            <button class="button secondary" id="end-button" type="button" disabled>
+              퀴즈 종료
+            </button>
           </div>
 
           <section class="answer-panel answer-panel-visual" id="answer-panel" aria-live="polite" data-state="idle" aria-hidden="true">
             <p class="answer-label" id="answer-label">정답 영역</p>
-            <p class="answer-quote" id="answer-title">
-              정답 보기 버튼을 누르면 이 영역에 제목이 표시됩니다.
-            </p>
+            <p class="answer-quote" id="answer-title"></p>
             <p class="answer-movie" id="answer-meta"></p>
           </section>
         </section>
