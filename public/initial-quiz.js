@@ -48,6 +48,7 @@ const initialClue = document.querySelector("#initial-clue");
 const initialCopy = document.querySelector("#initial-copy");
 const prompt = document.querySelector("#prompt");
 const answerPanel = document.querySelector("#answer-panel");
+const answerLabel = document.querySelector("#answer-label");
 const answerTitle = document.querySelector("#answer-title");
 const answerMeta = document.querySelector("#answer-meta");
 const answerImage = document.querySelector("#answer-image");
@@ -65,6 +66,11 @@ const defaultStage = {
   ticket: initialTicket.textContent,
   clue: initialClue.textContent,
   copy: initialCopy.textContent,
+};
+
+const defaultAnswer = {
+  label: answerLabel.textContent,
+  title: answerTitle.textContent,
 };
 
 totalCount.textContent = String(quizzes.length);
@@ -97,6 +103,16 @@ function updateStaticLabels() {
   remainingPill.textContent = getRemainingLabel();
 }
 
+function resetAnswerPanel() {
+  answerPanel.dataset.state = "idle";
+  answerPanel.setAttribute("aria-hidden", "true");
+  answerLabel.textContent = defaultAnswer.label;
+  answerTitle.textContent = defaultAnswer.title;
+  answerMeta.textContent = "";
+  answerImage.removeAttribute("src");
+  answerImage.alt = "";
+}
+
 function showQuiz(index) {
   const quiz = quizzes[index];
   state.currentQuiz = quiz;
@@ -109,12 +125,7 @@ function showQuiz(index) {
   stageTitle.textContent = `문제 ${state.round}. 이 초성의 제목은 무엇일까요?`;
   prompt.hidden = true;
 
-  answerPanel.hidden = true;
-  answerTitle.textContent = "";
-  answerMeta.textContent = "";
-  answerImage.hidden = true;
-  answerImage.removeAttribute("src");
-  answerImage.alt = "";
+  resetAnswerPanel();
 
   answerButton.disabled = false;
   nextButton.disabled = false;
@@ -134,12 +145,7 @@ function showCompletionState() {
   prompt.textContent = "새 라운드를 시작하려면 다시 시작 버튼을 눌러 주세요.";
   prompt.hidden = false;
 
-  answerPanel.hidden = true;
-  answerTitle.textContent = "";
-  answerMeta.textContent = "";
-  answerImage.hidden = true;
-  answerImage.removeAttribute("src");
-  answerImage.alt = "";
+  resetAnswerPanel();
 
   answerButton.disabled = true;
   nextButton.disabled = true;
@@ -170,12 +176,13 @@ function revealAnswer() {
     return;
   }
 
+  answerPanel.dataset.state = "revealed";
+  answerPanel.setAttribute("aria-hidden", "false");
+  answerLabel.textContent = "정답 공개";
   answerTitle.textContent = state.currentQuiz.title;
   answerMeta.textContent = `${state.currentQuiz.type} 정답`;
   answerImage.src = state.currentQuiz.image;
   answerImage.alt = state.currentQuiz.alt;
-  answerImage.hidden = false;
-  answerPanel.hidden = false;
   gameStatus.textContent = `정답 공개 ${state.round}`;
 }
 

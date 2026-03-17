@@ -50,6 +50,7 @@ const placeholderTitle = document.querySelector("#placeholder-title");
 const placeholderCopy = document.querySelector("#placeholder-copy");
 const prompt = document.querySelector("#prompt");
 const answerPanel = document.querySelector("#answer-panel");
+const answerLabel = document.querySelector("#answer-label");
 const answerQuote = document.querySelector("#answer-quote");
 const answerMovie = document.querySelector("#answer-movie");
 const startButton = document.querySelector("#start-button");
@@ -68,6 +69,11 @@ const defaultPlaceholder = {
   ticket: placeholderTicket.textContent,
   title: placeholderTitle.textContent,
   copy: placeholderCopy.textContent,
+};
+
+const defaultAnswer = {
+  label: answerLabel.textContent,
+  quote: answerQuote.textContent,
 };
 
 function refillPool() {
@@ -98,6 +104,14 @@ function restorePlaceholder() {
   placeholderCopy.textContent = defaultPlaceholder.copy;
 }
 
+function resetAnswerPanel() {
+  answerPanel.dataset.state = "idle";
+  answerPanel.setAttribute("aria-hidden", "true");
+  answerLabel.textContent = defaultAnswer.label;
+  answerQuote.textContent = defaultAnswer.quote;
+  answerMovie.textContent = "";
+}
+
 function showQuiz(index) {
   const quiz = quizzes[index];
   state.currentQuiz = quiz;
@@ -111,9 +125,7 @@ function showQuiz(index) {
 
   stageTitle.textContent = `문제 ${state.round}. 이 장면의 명대사는 무엇일까요?`;
   prompt.hidden = true;
-  answerPanel.hidden = true;
-  answerQuote.textContent = "";
-  answerMovie.textContent = "";
+  resetAnswerPanel();
 
   answerButton.disabled = false;
   nextButton.disabled = false;
@@ -139,9 +151,7 @@ function showCompletionState() {
   prompt.textContent = "새 라운드를 시작하려면 다시 시작 버튼을 눌러 주세요.";
   prompt.hidden = false;
 
-  answerPanel.hidden = true;
-  answerQuote.textContent = "";
-  answerMovie.textContent = "";
+  resetAnswerPanel();
 
   answerButton.disabled = true;
   nextButton.disabled = true;
@@ -172,9 +182,11 @@ function revealAnswer() {
     return;
   }
 
+  answerPanel.dataset.state = "revealed";
+  answerPanel.setAttribute("aria-hidden", "false");
+  answerLabel.textContent = "정답 공개";
   answerQuote.textContent = `“${state.currentQuiz.quote}”`;
   answerMovie.textContent = `영화: ${state.currentQuiz.movie}`;
-  answerPanel.hidden = false;
   gameStatus.textContent = `정답 공개 ${state.round}`;
 }
 
