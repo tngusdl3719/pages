@@ -45,6 +45,9 @@ const stageTitle = document.querySelector("#stage-title");
 const remainingPill = document.querySelector("#remaining-pill");
 const sceneImage = document.querySelector("#scene-image");
 const placeholder = document.querySelector("#placeholder");
+const placeholderTicket = document.querySelector("#placeholder-ticket");
+const placeholderTitle = document.querySelector("#placeholder-title");
+const placeholderCopy = document.querySelector("#placeholder-copy");
 const prompt = document.querySelector("#prompt");
 const answerPanel = document.querySelector("#answer-panel");
 const answerQuote = document.querySelector("#answer-quote");
@@ -60,6 +63,12 @@ const state = {
 };
 
 totalCount.textContent = String(quizzes.length);
+
+const defaultPlaceholder = {
+  ticket: placeholderTicket.textContent,
+  title: placeholderTitle.textContent,
+  copy: placeholderCopy.textContent,
+};
 
 function refillPool() {
   state.pool = quizzes.map((_, index) => index);
@@ -82,11 +91,19 @@ function updateStaticLabels() {
   remainingPill.textContent = getRemainingLabel();
 }
 
+function restorePlaceholder() {
+  placeholder.classList.remove("finish-state");
+  placeholderTicket.textContent = defaultPlaceholder.ticket;
+  placeholderTitle.textContent = defaultPlaceholder.title;
+  placeholderCopy.textContent = defaultPlaceholder.copy;
+}
+
 function showQuiz(index) {
   const quiz = quizzes[index];
   state.currentQuiz = quiz;
   state.round += 1;
 
+  restorePlaceholder();
   sceneImage.src = quiz.image;
   sceneImage.alt = quiz.alt;
   sceneImage.hidden = false;
@@ -105,13 +122,43 @@ function showQuiz(index) {
   updateStaticLabels();
 }
 
-function drawRandomQuiz({ reset = false } = {}) {
-  if (reset || state.pool.length === 0) {
-    refillPool();
+function showCompletionState() {
+  state.currentQuiz = null;
 
-    if (reset) {
-      state.round = 0;
-    }
+  sceneImage.hidden = true;
+  sceneImage.removeAttribute("src");
+  sceneImage.alt = "";
+
+  placeholder.classList.add("finish-state");
+  placeholderTicket.textContent = "The End";
+  placeholderTitle.textContent = "끝!";
+  placeholderCopy.textContent = "모든 문제를 사용했습니다. 다시 시작 버튼으로 새 라운드를 시작하세요.";
+  placeholder.hidden = false;
+
+  stageTitle.textContent = "모든 문제가 끝났습니다";
+  prompt.textContent = "새 라운드를 시작하려면 다시 시작 버튼을 눌러 주세요.";
+
+  answerPanel.hidden = true;
+  answerQuote.textContent = "";
+  answerMovie.textContent = "";
+
+  answerButton.disabled = true;
+  nextButton.disabled = true;
+  startButton.textContent = "다시 시작";
+
+  gameStatus.textContent = "종료";
+  remainingPill.textContent = "모든 문제 완료";
+}
+
+function drawRandomQuiz({ reset = false } = {}) {
+  if (reset) {
+    refillPool();
+    state.round = 0;
+  }
+
+  if (state.pool.length === 0) {
+    showCompletionState();
+    return;
   }
 
   const pick = Math.floor(Math.random() * state.pool.length);

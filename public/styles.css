@@ -270,6 +270,22 @@ h3 {
   line-height: 1.8;
 }
 
+.screen-placeholder.finish-state {
+  background:
+    radial-gradient(circle at center, rgba(255, 179, 71, 0.12), transparent 42%),
+    linear-gradient(180deg, rgba(16, 9, 10, 0.9), rgba(9, 5, 6, 0.96));
+}
+
+.screen-placeholder.finish-state .placeholder-title {
+  max-width: none;
+  font-size: clamp(3.6rem, 11vw, 7rem);
+  line-height: 1;
+}
+
+.screen-placeholder.finish-state .placeholder-copy {
+  max-width: 24ch;
+}
+
 .prompt {
   margin: 18px 0 0;
 }
