@@ -40,86 +40,61 @@
         </div>
       </header>
 
-      <main>
+      <main class="page-stack">
         <section class="hero">
-          <div class="hero-grid">
-            <div>
-              <p class="eyebrow">Static Utility Tools</p>
-              <h1>ブラウザでそのまま使える無料ユーティリティツール</h1>
-              <p class="hero-copy">
-                既存のクイズページとは別経路で追加した新しい試作です。静的サイト、言語別ルート、
-                SEOメタ情報、広告スロットのプレースホルダー、そして実際に動くBase64ページまでを
-                ひとつの流れで確認できます。
-              </p>
-              <div class="hero-actions">
-                <a class="button primary" href="/utility-tools/ja/tools/">ツール一覧を見る</a>
-                <a class="button secondary" href="/utility-tools/ja/tools/base64-encoder/">Base64を開く</a>
-              </div>
-            </div>
-
-            <div class="panel">
-              <p class="eyebrow">設計方針</p>
-              <div class="inline-links">
-                <span class="pill">静的優先</span>
-                <span class="pill">多言語</span>
-                <span class="pill">SEO重視</span>
-                <span class="pill">広告対応</span>
-              </div>
-              <p class="hero-note">
-                すべての処理はブラウザ内で完結します。バックエンドやDBを導入しなくても、
-                将来のツール追加に耐えられる構造を先に整えています。
-              </p>
-            </div>
-          </div>
-
-          <div class="stat-grid">
-            <article class="stat-card">
-              <p class="stat-label">初期ツール数</p>
-              <p class="stat-value">10</p>
-            </article>
-            <article class="stat-card">
-              <p class="stat-label">対応言語</p>
-              <p class="stat-value">3</p>
-            </article>
-            <article class="stat-card">
-              <p class="stat-label">実行場所</p>
-              <p class="stat-value">Browser</p>
-            </article>
-            <article class="stat-card">
-              <p class="stat-label">広告枠</p>
-              <p class="stat-value">準備済み</p>
-            </article>
+          <p class="eyebrow">Static Utility Tools</p>
+          <h1>ブラウザでそのまま使える無料ユーティリティツール</h1>
+          <p class="hero-copy">
+            新しいパスに分離したユーティリティツール試作です。ブラウザ内処理、言語別URL、
+            基本SEO構造を優先し、最初の実装としてBase64ページを動く状態で追加しました。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="/utility-tools/ja/tools/">ツール一覧を見る</a>
+            <a class="button secondary" href="/utility-tools/ja/tools/base64-encoder/">Base64を開く</a>
           </div>
         </section>
 
         <section class="section">
-          <div class="tool-grid">
-            <article class="tool-card live">
-              <div class="card-top">
-                <span class="pill live">公開中</span>
-                <span class="pill">Text &amp; Data</span>
+          <div class="tool-list">
+            <a class="tool-row" href="/utility-tools/ja/tools/base64-encoder/">
+              <div class="row-main">
+                <p class="row-label">利用可能</p>
+                <h3 class="row-title">Base64 Encoder / Decoder</h3>
+                <p class="row-copy">文字列をBase64へ変換し、Base64を通常の文字列へ戻します。</p>
               </div>
-              <h3 class="tool-name">Base64 Encoder / Decoder</h3>
-              <p class="card-copy">UTF-8文字列のBase64変換と復元をブラウザだけで行えます。</p>
-              <div class="card-actions">
-                <a class="button primary" href="/utility-tools/ja/tools/base64-encoder/">開く</a>
+              <span class="row-meta">Text &amp; Data</span>
+              <span class="row-status live">Live</span>
+            </a>
+            <div class="tool-row">
+              <div class="row-main">
+                <p class="row-label">次の候補</p>
+                <h3 class="row-title">JWT Decoder</h3>
+                <p class="row-copy">トークン確認ページも同じレイアウトにそのまま載せられます。</p>
               </div>
+              <span class="row-meta">Security</span>
+              <span class="row-status">Soon</span>
+            </div>
+            <div class="tool-row">
+              <div class="row-main">
+                <p class="row-label">次の候補</p>
+                <h3 class="row-title">Loan Interest Calculator</h3>
+                <p class="row-copy">計算系ページも余計な装飾を足さずに拡張できる構成です。</p>
+              </div>
+              <span class="row-meta">Finance</span>
+              <span class="row-status">Soon</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="simple-grid">
+            <article class="info-block">
+              <h3>重視する点</h3>
+              <p class="card-copy">静的配布、多言語URL、実コンテンツ、広告領域への対応を優先します。</p>
             </article>
-            <article class="tool-card coming">
-              <div class="card-top">
-                <span class="pill coming">準備中</span>
-                <span class="pill">Security</span>
-              </div>
-              <h3 class="tool-name">JWT Decoder</h3>
-              <p class="card-copy">トークンの構造をすばやく確認する読み取り専用ツールです。</p>
-            </article>
-            <article class="tool-card coming">
-              <div class="card-top">
-                <span class="pill coming">準備中</span>
-                <span class="pill">Math</span>
-              </div>
-              <h3 class="tool-name">Loan Interest Calculator</h3>
-              <p class="card-copy">金利と期間から返済負担をすばやく確認できる計算ツールです。</p>
+            <article class="info-block">
+              <h3>現在の範囲</h3>
+              <p class="card-copy">ホーム、一覧、Base64詳細を先に作り、残りは同じ型で増やします。</p>
             </article>
           </div>
         </section>

@@ -37,101 +37,127 @@
         </div>
       </header>
 
-      <main>
+      <main class="page-stack">
         <section class="hero">
+          <p class="eyebrow">Tool Catalog</p>
+          <h1>一覧性を優先したツールカタログ</h1>
+          <p class="hero-copy">
+            余計なカードを減らし、上から順に見れば内容が把握できる構成に整理しました。
+            現在はBase64が動作し、残りは同じ型で追加できます。
+          </p>
+        </section>
+
+        <section class="section">
           <div class="section-head">
             <div>
-              <p class="eyebrow">Tool Catalog</p>
-              <h1>カテゴリ別ツール一覧</h1>
-              <p class="hero-copy">
-                内部リンク強化と今後の拡張を想定したハブページです。現在はBase64詳細ページのみ
-                実装済みで、残りのカードは初期ロードマップとして配置しています。
-              </p>
-            </div>
-            <div class="page-switcher">
-              <a href="/utility-tools/ja/">ホーム</a>
-              <a href="/utility-tools/ja/tools/" aria-current="page">ツール一覧</a>
-              <a href="/utility-tools/ja/tools/base64-encoder/">Base64</a>
+              <p class="eyebrow">Text &amp; Data</p>
+              <h2 class="section-title">文字列とデータ処理</h2>
             </div>
           </div>
-          <div class="chip-row">
-            <a href="#text-data">Text &amp; Data</a>
-            <a href="#security">Security</a>
-            <a href="#productivity">Productivity</a>
-            <a href="#finance">Finance &amp; Math</a>
-            <a href="#conversion">Conversion</a>
-          </div>
-        </section>
-
-        <section class="section" id="text-data">
-          <div class="tool-grid">
-            <article class="tool-card live">
-              <div class="card-top">
-                <span class="pill live">公開中</span>
-                <span class="pill">おすすめ</span>
+          <div class="tool-list">
+            <a class="tool-row" href="/utility-tools/ja/tools/base64-encoder/">
+              <div class="row-main">
+                <p class="row-label">利用可能</p>
+                <h3 class="row-title">Base64 Encoder / Decoder</h3>
+                <p class="row-copy">UTF-8文字列をBase64へ変換し、Base64を通常の文字列へ戻します。</p>
               </div>
-              <h3 class="tool-name">Base64 Encoder / Decoder</h3>
-              <p class="card-copy">UTF-8文字列をBase64に変換し、また元の文字列へ復元します。</p>
-              <div class="card-actions">
-                <a class="button primary" href="/utility-tools/ja/tools/base64-encoder/">詳細を見る</a>
+              <span class="row-meta">Text &amp; Data</span>
+              <span class="row-status live">Live</span>
+            </a>
+            <div class="tool-row">
+              <div class="row-main">
+                <p class="row-label">準備中</p>
+                <h3 class="row-title">URL Encoder / Decoder</h3>
+                <p class="row-copy">クエリ文字列やURLパラメータを安全に変換します。</p>
               </div>
-            </article>
-            <article class="tool-card coming">
-              <h3 class="tool-name">URL Encoder / Decoder</h3>
-              <p class="card-copy">URLパラメータやクエリ文字列を安全に変換します。</p>
-            </article>
-            <article class="tool-card coming">
-              <h3 class="tool-name">Random String Generator</h3>
-              <p class="card-copy">長さや文字種を指定してテスト用文字列を生成します。</p>
-            </article>
+              <span class="row-meta">Text &amp; Data</span>
+              <span class="row-status">Soon</span>
+            </div>
+            <div class="tool-row">
+              <div class="row-main">
+                <p class="row-label">準備中</p>
+                <h3 class="row-title">Random String Generator</h3>
+                <p class="row-copy">長さや文字種を指定してテスト用文字列を生成します。</p>
+              </div>
+              <span class="row-meta">Text &amp; Data</span>
+              <span class="row-status">Soon</span>
+            </div>
           </div>
         </section>
 
-        <section class="section" id="security">
-          <div class="tool-grid">
-            <article class="tool-card coming">
-              <h3 class="tool-name">JWT Decoder</h3>
-              <p class="card-copy">トークンの構造をサーバー送信なしで確認できます。</p>
-            </article>
-            <article class="tool-card coming">
-              <h3 class="tool-name">SHA Hash Generator</h3>
-              <p class="card-copy">テキスト比較向けにハッシュ値をすばやく生成します。</p>
-            </article>
+        <section class="section">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Security</p>
+              <h2 class="section-title">確認用ツール</h2>
+            </div>
+          </div>
+          <div class="tool-list">
+            <div class="tool-row">
+              <div class="row-main">
+                <p class="row-label">準備中</p>
+                <h3 class="row-title">JWT Decoder</h3>
+                <p class="row-copy">トークンの構造をサーバー送信なしで確認できます。</p>
+              </div>
+              <span class="row-meta">Security</span>
+              <span class="row-status">Soon</span>
+            </div>
+            <div class="tool-row">
+              <div class="row-main">
+                <p class="row-label">準備中</p>
+                <h3 class="row-title">SHA Hash Generator</h3>
+                <p class="row-copy">テキスト比較向けにハッシュ値をすばやく生成します。</p>
+              </div>
+              <span class="row-meta">Security</span>
+              <span class="row-status">Soon</span>
+            </div>
           </div>
         </section>
 
-        <section class="section" id="productivity">
-          <div class="tool-grid">
-            <article class="tool-card coming">
-              <h3 class="tool-name">UUID Generator</h3>
-              <p class="card-copy">コピーしやすいUUIDを連続で生成します。</p>
-            </article>
-            <article class="tool-card coming">
-              <h3 class="tool-name">Date Difference Calculator</h3>
-              <p class="card-copy">2つの日付の差を日数や週数で確認できます。</p>
-            </article>
+        <section class="section">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Calculators &amp; Conversion</p>
+              <h2 class="section-title">計算と変換</h2>
+            </div>
           </div>
-        </section>
-
-        <section class="section" id="finance">
-          <div class="tool-grid">
-            <article class="tool-card coming">
-              <h3 class="tool-name">Loan Interest Calculator</h3>
-              <p class="card-copy">元金、金利、期間から返済負担を試算します。</p>
-            </article>
-            <article class="tool-card coming">
-              <h3 class="tool-name">Percent Calculator</h3>
-              <p class="card-copy">割引率、増減率、比率計算をひとつにまとめます。</p>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" id="conversion">
-          <div class="tool-grid">
-            <article class="tool-card coming">
-              <h3 class="tool-name">Unit Converter</h3>
-              <p class="card-copy">長さ、重さ、温度などの単位を変換します。</p>
-            </article>
+          <div class="tool-list">
+            <div class="tool-row">
+              <div class="row-main">
+                <p class="row-label">準備中</p>
+                <h3 class="row-title">Date Difference Calculator</h3>
+                <p class="row-copy">2つの日付の差を日数や週数で確認できます。</p>
+              </div>
+              <span class="row-meta">Calculator</span>
+              <span class="row-status">Soon</span>
+            </div>
+            <div class="tool-row">
+              <div class="row-main">
+                <p class="row-label">準備中</p>
+                <h3 class="row-title">Loan Interest Calculator</h3>
+                <p class="row-copy">元金、金利、期間から返済負担を試算します。</p>
+              </div>
+              <span class="row-meta">Finance</span>
+              <span class="row-status">Soon</span>
+            </div>
+            <div class="tool-row">
+              <div class="row-main">
+                <p class="row-label">準備中</p>
+                <h3 class="row-title">Percent Calculator</h3>
+                <p class="row-copy">割引率、増減率、比率計算をひとつにまとめます。</p>
+              </div>
+              <span class="row-meta">Calculator</span>
+              <span class="row-status">Soon</span>
+            </div>
+            <div class="tool-row">
+              <div class="row-main">
+                <p class="row-label">準備中</p>
+                <h3 class="row-title">Unit Converter</h3>
+                <p class="row-copy">長さ、重さ、温度などの単位を変換します。</p>
+              </div>
+              <span class="row-meta">Conversion</span>
+              <span class="row-status">Soon</span>
+            </div>
           </div>
         </section>
       </main>

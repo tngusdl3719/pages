@@ -33,7 +33,6 @@
             <small>정적 배포 중심 멀티링구얼 툴 허브</small>
           </span>
         </a>
-
         <div class="lang-switcher" aria-label="언어 전환">
           <a href="/utility-tools/ko/" aria-current="page">한국어</a>
           <a href="/utility-tools/en/">English</a>
@@ -41,133 +40,67 @@
         </div>
       </header>
 
-      <main>
+      <main class="page-stack">
         <section class="hero">
-          <div class="hero-grid">
-            <div>
-              <p class="eyebrow">Static Utility Tools</p>
-              <h1>브라우저에서 바로 쓰는 무료 유틸 툴 모음</h1>
-              <p class="hero-copy">
-                이 경로는 기존 퀴즈 페이지와 분리된 신규 프로토타입입니다. 정적 사이트
-                기반, 다국어 라우팅, SEO 메타 구조, 광고 슬롯 placeholder, 향후 툴 확장을
-                고려한 홈 구조를 한 번에 보여주도록 구성했습니다.
-              </p>
-              <div class="hero-actions">
-                <a class="button primary" href="/utility-tools/ko/tools/">전체 툴 보기</a>
-                <a class="button secondary" href="/utility-tools/ko/tools/base64-encoder/">Base64 바로 사용</a>
-              </div>
-            </div>
-
-            <div class="panel">
-              <p class="eyebrow">서비스 방향</p>
-              <div class="inline-links">
-                <span class="pill">정적 우선</span>
-                <span class="pill">다국어</span>
-                <span class="pill">SEO 중심</span>
-                <span class="pill">광고 대응</span>
-              </div>
-              <p class="hero-note">
-                모든 연산은 브라우저에서 처리하고, 서버 호출 없이 가볍게 동작하는 형태를
-                우선합니다. 현재는 대표 레이아웃과 Base64 상세 페이지를 실제 동작하는 상태로
-                추가했습니다.
-              </p>
-            </div>
-          </div>
-
-          <div class="stat-grid">
-            <article class="stat-card">
-              <p class="stat-label">초기 툴 범위</p>
-              <p class="stat-value">10개</p>
-            </article>
-            <article class="stat-card">
-              <p class="stat-label">지원 언어</p>
-              <p class="stat-value">3개</p>
-            </article>
-            <article class="stat-card">
-              <p class="stat-label">처리 방식</p>
-              <p class="stat-value">브라우저 내</p>
-            </article>
-            <article class="stat-card">
-              <p class="stat-label">광고 슬롯</p>
-              <p class="stat-value">준비 완료</p>
-            </article>
+          <p class="eyebrow">Static Utility Tools</p>
+          <h1>브라우저에서 바로 쓰는 무료 유틸 툴</h1>
+          <p class="hero-copy">
+            새 경로에 분리한 유틸 툴 프로토타입입니다. 브라우저 내 처리, 언어별 URL, 기본
+            SEO 메타 구조를 우선했고, 시작점으로 Base64 페이지를 실제 동작하게 만들었습니다.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="/utility-tools/ko/tools/">전체 툴 보기</a>
+            <a class="button secondary" href="/utility-tools/ko/tools/base64-encoder/">Base64 열기</a>
           </div>
         </section>
 
         <section class="section">
           <div class="section-head">
             <div>
-              <p class="eyebrow">Popular Tools</p>
-              <h2 class="section-title">대표 툴 미리보기</h2>
+              <p class="eyebrow">Featured</p>
+              <h2 class="section-title">지금 확인할 수 있는 흐름</h2>
             </div>
-            <a class="ghost-link" href="/utility-tools/ko/tools/">카탈로그 전체 보기</a>
           </div>
-
-          <div class="tool-grid">
-            <article class="tool-card live">
-              <div class="card-top">
-                <span class="pill live">사용 가능</span>
-                <span class="pill">Text &amp; Data</span>
+          <div class="tool-list">
+            <a class="tool-row" href="/utility-tools/ko/tools/base64-encoder/">
+              <div class="row-main">
+                <p class="row-label">사용 가능</p>
+                <h3 class="row-title">Base64 Encoder / Decoder</h3>
+                <p class="row-copy">문자열을 Base64로 인코딩하거나 다시 일반 문자열로 복원합니다.</p>
               </div>
-              <h3 class="tool-name">Base64 Encoder / Decoder</h3>
-              <p class="card-copy">텍스트를 Base64로 인코딩하거나 다시 일반 문자열로 복원합니다.</p>
-              <div class="card-actions">
-                <a class="button primary" href="/utility-tools/ko/tools/base64-encoder/">열기</a>
+              <span class="row-meta">Text &amp; Data</span>
+              <span class="row-status live">Live</span>
+            </a>
+            <div class="tool-row">
+              <div class="row-main">
+                <p class="row-label">다음 후보</p>
+                <h3 class="row-title">JWT Decoder</h3>
+                <p class="row-copy">토큰 구조를 읽기 전용으로 확인하는 상세 페이지가 같은 구조로 추가될 예정입니다.</p>
               </div>
-            </article>
-
-            <article class="tool-card coming">
-              <div class="card-top">
-                <span class="pill coming">준비 중</span>
-                <span class="pill">Security</span>
+              <span class="row-meta">Security</span>
+              <span class="row-status">Soon</span>
+            </div>
+            <div class="tool-row">
+              <div class="row-main">
+                <p class="row-label">다음 후보</p>
+                <h3 class="row-title">Loan Interest Calculator</h3>
+                <p class="row-copy">계산형 툴이 들어가도 같은 레이아웃을 재사용할 수 있게 설계합니다.</p>
               </div>
-              <h3 class="tool-name">JWT Decoder</h3>
-              <p class="card-copy">토큰의 header와 payload를 빠르게 확인하는 읽기 전용 디코더입니다.</p>
-            </article>
-
-            <article class="tool-card coming">
-              <div class="card-top">
-                <span class="pill coming">준비 중</span>
-                <span class="pill">Math</span>
-              </div>
-              <h3 class="tool-name">대출 이자 계산기</h3>
-              <p class="card-copy">원금, 이율, 기간을 입력해 상환 금액 흐름을 빠르게 확인합니다.</p>
-            </article>
+              <span class="row-meta">Finance</span>
+              <span class="row-status">Soon</span>
+            </div>
           </div>
         </section>
 
         <section class="section">
-          <div class="ad-slot">
-            <small>Ad Slot Placeholder</small>
-            <strong>상단 배너 슬롯</strong>
-            <span>개발 환경에서는 placeholder, 운영 환경에서는 광고 스크립트를 넣을 수 있게 설계합니다.</span>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="section-head">
-            <div>
-              <p class="eyebrow">Categories</p>
-              <h2 class="section-title">카테고리 진입</h2>
-            </div>
-          </div>
-
-          <div class="category-grid">
-            <article class="category-card">
-              <h3 class="category-title">텍스트 &amp; 데이터</h3>
-              <p class="category-copy">Base64, URL 인코딩, 랜덤 문자열 생성처럼 복사/붙여넣기 중심 작업을 묶습니다.</p>
+          <div class="simple-grid">
+            <article class="info-block">
+              <h3>핵심 방향</h3>
+              <p class="card-copy">정적 배포, 다국어 URL, 실제 콘텐츠 분리, 광고 영역 대응을 기본 전제로 둡니다.</p>
             </article>
-            <article class="category-card">
-              <h3 class="category-title">보안</h3>
-              <p class="category-copy">JWT 디코더와 해시 생성기처럼 확인용 보조 툴을 제공합니다.</p>
-            </article>
-            <article class="category-card">
-              <h3 class="category-title">계산</h3>
-              <p class="category-copy">날짜 차이, 퍼센트, 대출 이자처럼 빠른 계산이 필요한 툴을 배치합니다.</p>
-            </article>
-            <article class="category-card">
-              <h3 class="category-title">변환</h3>
-              <p class="category-copy">단위 변환과 같은 범용 툴을 언어별 설명과 함께 제공합니다.</p>
+            <article class="info-block">
+              <h3>현재 범위</h3>
+              <p class="card-copy">홈, 툴 목록, Base64 상세까지 먼저 만들고 나머지 툴은 같은 패턴으로 확장합니다.</p>
             </article>
           </div>
         </section>

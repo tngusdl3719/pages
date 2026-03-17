@@ -40,128 +40,61 @@
         </div>
       </header>
 
-      <main>
+      <main class="page-stack">
         <section class="hero">
-          <div class="hero-grid">
-            <div>
-              <p class="eyebrow">Static Utility Tools</p>
-              <h1>Free browser-based utilities with clear language routes.</h1>
-              <p class="hero-copy">
-                This isolated path follows the design brief in <span class="mono">docs/설계지시.md</span>.
-                It demonstrates a lightweight home page, a tool catalog, ad placeholders,
-                multilingual SEO wiring, and a working Base64 tool page.
-              </p>
-              <div class="hero-actions">
-                <a class="button primary" href="/utility-tools/en/tools/">Browse tools</a>
-                <a class="button secondary" href="/utility-tools/en/tools/base64-encoder/">Open Base64</a>
-              </div>
-            </div>
-
-            <div class="panel">
-              <p class="eyebrow">Core goals</p>
-              <div class="inline-links">
-                <span class="pill">Static first</span>
-                <span class="pill">SEO ready</span>
-                <span class="pill">Localized</span>
-                <span class="pill">Ad friendly</span>
-              </div>
-              <p class="hero-note">
-                All processing stays inside the browser. The structure is ready for future
-                catalog expansion without introducing backend or database dependencies.
-              </p>
-            </div>
-          </div>
-
-          <div class="stat-grid">
-            <article class="stat-card">
-              <p class="stat-label">Initial tools</p>
-              <p class="stat-value">10</p>
-            </article>
-            <article class="stat-card">
-              <p class="stat-label">Languages</p>
-              <p class="stat-value">3</p>
-            </article>
-            <article class="stat-card">
-              <p class="stat-label">Execution</p>
-              <p class="stat-value">In-browser</p>
-            </article>
-            <article class="stat-card">
-              <p class="stat-label">Ad slots</p>
-              <p class="stat-value">Prepared</p>
-            </article>
+          <p class="eyebrow">Static Utility Tools</p>
+          <h1>Simple browser-based utilities with clear language routes.</h1>
+          <p class="hero-copy">
+            This isolated path follows the utility-tools brief with a lighter layout, language-specific
+            routes, and a working Base64 page that runs entirely in the browser.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="/utility-tools/en/tools/">Browse tools</a>
+            <a class="button secondary" href="/utility-tools/en/tools/base64-encoder/">Open Base64</a>
           </div>
         </section>
 
         <section class="section">
-          <div class="section-head">
-            <div>
-              <p class="eyebrow">Popular Tools</p>
-              <h2 class="section-title">Representative tools</h2>
+          <div class="tool-list">
+            <a class="tool-row" href="/utility-tools/en/tools/base64-encoder/">
+              <div class="row-main">
+                <p class="row-label">Available now</p>
+                <h3 class="row-title">Base64 Encoder / Decoder</h3>
+                <p class="row-copy">Encode plain text to Base64 and decode Base64 back into readable text.</p>
+              </div>
+              <span class="row-meta">Text &amp; Data</span>
+              <span class="row-status live">Live</span>
+            </a>
+            <div class="tool-row">
+              <div class="row-main">
+                <p class="row-label">Next candidate</p>
+                <h3 class="row-title">JWT Decoder</h3>
+                <p class="row-copy">A read-only token inspection page can plug into the same structure.</p>
+              </div>
+              <span class="row-meta">Security</span>
+              <span class="row-status">Soon</span>
             </div>
-            <a class="ghost-link" href="/utility-tools/en/tools/">See full catalog</a>
-          </div>
-          <div class="tool-grid">
-            <article class="tool-card live">
-              <div class="card-top">
-                <span class="pill live">Live</span>
-                <span class="pill">Text &amp; Data</span>
+            <div class="tool-row">
+              <div class="row-main">
+                <p class="row-label">Next candidate</p>
+                <h3 class="row-title">Loan Interest Calculator</h3>
+                <p class="row-copy">Calculator pages can reuse the same layout without adding visual clutter.</p>
               </div>
-              <h3 class="tool-name">Base64 Encoder / Decoder</h3>
-              <p class="card-copy">Encode UTF-8 text to Base64 and decode Base64 back into readable text.</p>
-              <div class="card-actions">
-                <a class="button primary" href="/utility-tools/en/tools/base64-encoder/">Open tool</a>
-              </div>
-            </article>
-            <article class="tool-card coming">
-              <div class="card-top">
-                <span class="pill coming">Coming soon</span>
-                <span class="pill">Security</span>
-              </div>
-              <h3 class="tool-name">JWT Decoder</h3>
-              <p class="card-copy">Inspect token headers and payloads with a read-only browser workflow.</p>
-            </article>
-            <article class="tool-card coming">
-              <div class="card-top">
-                <span class="pill coming">Coming soon</span>
-                <span class="pill">Math</span>
-              </div>
-              <h3 class="tool-name">Loan Interest Calculator</h3>
-              <p class="card-copy">Estimate monthly burden and total interest without leaving the page.</p>
-            </article>
+              <span class="row-meta">Finance</span>
+              <span class="row-status">Soon</span>
+            </div>
           </div>
         </section>
 
         <section class="section">
-          <div class="ad-slot">
-            <small>Ad Slot Placeholder</small>
-            <strong>Top banner slot</strong>
-            <span>Reserved space keeps layout stable whether ads are enabled or not.</span>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="section-head">
-            <div>
-              <p class="eyebrow">Categories</p>
-              <h2 class="section-title">Entry points for expansion</h2>
-            </div>
-          </div>
-          <div class="category-grid">
-            <article class="category-card">
-              <h3 class="category-title">Text &amp; Data</h3>
-              <p class="category-copy">Base64, URL encoding, and random string workflows for copy-and-paste tasks.</p>
+          <div class="simple-grid">
+            <article class="info-block">
+              <h3>What matters</h3>
+              <p class="card-copy">Static deployment, localized URLs, real page content, and room for ad placement.</p>
             </article>
-            <article class="category-card">
-              <h3 class="category-title">Security</h3>
-              <p class="category-copy">Read-only helpers such as JWT decoding and SHA hashing.</p>
-            </article>
-            <article class="category-card">
-              <h3 class="category-title">Calculators</h3>
-              <p class="category-copy">Date differences, percentages, and loan interest tools.</p>
-            </article>
-            <article class="category-card">
-              <h3 class="category-title">Conversion</h3>
-              <p class="category-copy">Common measurement conversions with localized guidance.</p>
+            <article class="info-block">
+              <h3>Current scope</h3>
+              <p class="card-copy">Home, catalog, and Base64 detail are implemented first as the reusable baseline.</p>
             </article>
           </div>
         </section>

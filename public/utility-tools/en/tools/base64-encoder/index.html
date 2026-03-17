@@ -51,33 +51,23 @@
         </div>
       </header>
 
-      <main>
+      <main class="page-stack">
         <section class="hero">
-          <div class="section-head">
-            <div>
-              <p class="eyebrow">Text &amp; Data Tool</p>
-              <h1>Base64 Encoder / Decoder</h1>
-              <p class="hero-copy">
-                Encode plain text into Base64 or decode Base64 back into readable UTF-8 text.
-                Everything runs locally in the browser, so there is no backend dependency.
-              </p>
-            </div>
-            <div class="page-switcher">
-              <a href="/utility-tools/en/">Home</a>
-              <a href="/utility-tools/en/tools/">Tools</a>
-              <a href="/utility-tools/en/tools/base64-encoder/" aria-current="page">Base64</a>
-            </div>
-          </div>
-
-          <div class="ad-slot">
-            <small>Ad Slot Placeholder</small>
-            <strong>Top tool slot</strong>
-            <span>Reserved height keeps the layout stable when ads are enabled later.</span>
+          <p class="eyebrow">Text &amp; Data Tool</p>
+          <h1>Base64 Encoder / Decoder</h1>
+          <p class="hero-copy">
+            Encode plain text into Base64 or decode Base64 back into readable UTF-8 text.
+            Everything runs locally in the browser.
+          </p>
+          <div class="page-switcher">
+            <a href="/utility-tools/en/">Home</a>
+            <a href="/utility-tools/en/tools/">Tools</a>
+            <a href="/utility-tools/en/tools/base64-encoder/" aria-current="page">Base64</a>
           </div>
         </section>
 
         <section
-          class="panel section"
+          class="panel"
           data-base64-app
           data-message-encoded="The input text was encoded into Base64."
           data-message-decoded="The Base64 string was decoded into plain text."
@@ -90,10 +80,9 @@
           <div class="section-head">
             <div>
               <p class="eyebrow">Tool UI</p>
-              <h2 class="section-title">Live workspace</h2>
+              <h2 class="section-title">Use it now</h2>
             </div>
           </div>
-
           <div class="tool-workspace">
             <div class="field-group">
               <label for="base64-input-en">Input</label>
@@ -106,9 +95,7 @@
               <div class="button-row">
                 <button class="action-button primary" type="button" data-action="encode">Encode</button>
                 <button class="action-button secondary" type="button" data-action="decode">Decode</button>
-                <button class="action-button ghost" type="button" data-example-input="Utility tools preview">
-                  Example text
-                </button>
+                <button class="action-button ghost" type="button" data-example-input="Utility tools preview">Example text</button>
                 <button
                   class="action-button ghost"
                   type="button"
@@ -119,7 +106,6 @@
                 </button>
               </div>
             </div>
-
             <div class="result-panel">
               <div class="field-group">
                 <label for="base64-output-en">Result</label>
@@ -143,65 +129,43 @@
         </section>
 
         <section class="section">
-          <div class="guide-grid">
-            <article class="guide-list">
-              <h3>Example input/output</h3>
-              <ol>
-                <li><strong>Input:</strong> <span class="mono">hello world</span></li>
-                <li><strong>Output:</strong> <span class="mono">aGVsbG8gd29ybGQ=</span></li>
-                <li><strong>Decode:</strong> Paste the output back in to restore the original text.</li>
+          <div class="simple-grid">
+            <article class="info-block">
+              <h3>Example</h3>
+              <ol class="list-plain">
+                <li><span class="mono">hello world</span> becomes <span class="mono">aGVsbG8gd29ybGQ=</span>.</li>
+                <li>Paste the encoded value back in and decode it to restore the original text.</li>
               </ol>
             </article>
-            <article class="guide-list">
+            <article class="info-block">
               <h3>How to use it</h3>
-              <ol>
+              <ol class="list-plain">
                 <li>Paste a string into the input area.</li>
-                <li>Choose Encode or Decode depending on your task.</li>
-                <li>Copy the result or clear the workspace for the next value.</li>
+                <li>Choose Encode or Decode.</li>
+                <li>Copy the result or reset the workspace.</li>
               </ol>
             </article>
-            <article class="guide-list">
-              <h3>Common use cases</h3>
-              <ul>
-                <li>Inspect encoded payload snippets</li>
-                <li>Prepare text for transport-safe formatting</li>
-                <li>Decode Base64 strings during debugging</li>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="simple-grid">
+            <article class="info-block">
+              <h3>FAQ</h3>
+              <ul class="list-plain">
+                <li>All processing stays in the browser.</li>
+                <li>UTF-8 text is supported, including multilingual strings.</li>
+                <li>Invalid Base64 values trigger an error state.</li>
               </ul>
             </article>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="faq-grid">
-            <article class="faq-item">
-              <h3>Does it upload my input?</h3>
-              <p class="faq-answer">No. Everything stays in the browser and is processed locally.</p>
+            <article class="info-block">
+              <h3>Related tools</h3>
+              <ul class="list-plain">
+                <li><a href="/utility-tools/en/tools/">URL Encoder / Decoder</a></li>
+                <li><a href="/utility-tools/en/tools/">JWT Decoder</a></li>
+                <li><a href="/utility-tools/en/tools/">Random String Generator</a></li>
+              </ul>
             </article>
-            <article class="faq-item">
-              <h3>Can it handle non-English text?</h3>
-              <p class="faq-answer">Yes. The tool handles UTF-8 text, so multilingual strings are supported.</p>
-            </article>
-            <article class="faq-item">
-              <h3>What if the Base64 value is invalid?</h3>
-              <p class="faq-answer">The tool switches to an error state and asks you to verify the input.</p>
-            </article>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="related-grid">
-            <a class="related-card" href="/utility-tools/en/tools/">
-              <h3>URL Encoder / Decoder</h3>
-              <p class="faq-answer">Another text-focused helper for query strings and URL parameters.</p>
-            </a>
-            <a class="related-card" href="/utility-tools/en/tools/">
-              <h3>JWT Decoder</h3>
-              <p class="faq-answer">Pairs well with Base64 when inspecting token payloads.</p>
-            </a>
-            <a class="related-card" href="/utility-tools/en/tools/">
-              <h3>Random String Generator</h3>
-              <p class="faq-answer">Useful for generating quick test data alongside encoding workflows.</p>
-            </a>
           </div>
         </section>
       </main>

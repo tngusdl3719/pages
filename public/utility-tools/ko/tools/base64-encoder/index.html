@@ -8,35 +8,14 @@
       name="description"
       content="브라우저 안에서 바로 동작하는 Base64 인코더/디코더입니다. UTF-8 문자열 인코딩, 디코딩, 복사, 예시 입력을 지원합니다."
     />
-    <link
-      rel="canonical"
-      href="https://pages.tngusdl3719.workers.dev/utility-tools/ko/tools/base64-encoder/"
-    />
-    <link
-      rel="alternate"
-      hreflang="ko"
-      href="https://pages.tngusdl3719.workers.dev/utility-tools/ko/tools/base64-encoder/"
-    />
-    <link
-      rel="alternate"
-      hreflang="en"
-      href="https://pages.tngusdl3719.workers.dev/utility-tools/en/tools/base64-encoder/"
-    />
-    <link
-      rel="alternate"
-      hreflang="ja"
-      href="https://pages.tngusdl3719.workers.dev/utility-tools/ja/tools/base64-encoder/"
-    />
+    <link rel="canonical" href="https://pages.tngusdl3719.workers.dev/utility-tools/ko/tools/base64-encoder/" />
+    <link rel="alternate" hreflang="ko" href="https://pages.tngusdl3719.workers.dev/utility-tools/ko/tools/base64-encoder/" />
+    <link rel="alternate" hreflang="en" href="https://pages.tngusdl3719.workers.dev/utility-tools/en/tools/base64-encoder/" />
+    <link rel="alternate" hreflang="ja" href="https://pages.tngusdl3719.workers.dev/utility-tools/ja/tools/base64-encoder/" />
     <link rel="alternate" hreflang="x-default" href="https://pages.tngusdl3719.workers.dev/utility-tools/" />
     <meta property="og:title" content="Base64 Encoder / Decoder" />
-    <meta
-      property="og:description"
-      content="브라우저 내에서 동작하는 Base64 인코더/디코더 상세 페이지입니다."
-    />
-    <meta
-      property="og:url"
-      content="https://pages.tngusdl3719.workers.dev/utility-tools/ko/tools/base64-encoder/"
-    />
+    <meta property="og:description" content="브라우저 내에서 동작하는 Base64 인코더/디코더 상세 페이지입니다." />
+    <meta property="og:url" content="https://pages.tngusdl3719.workers.dev/utility-tools/ko/tools/base64-encoder/" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="stylesheet" href="/utility-tools/styles.css" />
@@ -72,34 +51,23 @@
         </div>
       </header>
 
-      <main>
+      <main class="page-stack">
         <section class="hero">
-          <div class="section-head">
-            <div>
-              <p class="eyebrow">Text &amp; Data Tool</p>
-              <h1>Base64 Encoder / Decoder</h1>
-              <p class="hero-copy">
-                문자열을 Base64로 인코딩하거나, Base64 문자열을 다시 UTF-8 텍스트로
-                복원합니다. 파일 업로드 없이 브라우저에서만 처리하므로 가볍고 빠르게 사용할 수
-                있습니다.
-              </p>
-            </div>
-            <div class="page-switcher">
-              <a href="/utility-tools/ko/">홈</a>
-              <a href="/utility-tools/ko/tools/">툴 목록</a>
-              <a href="/utility-tools/ko/tools/base64-encoder/" aria-current="page">Base64</a>
-            </div>
-          </div>
-
-          <div class="ad-slot">
-            <small>Ad Slot Placeholder</small>
-            <strong>툴 상단 슬롯</strong>
-            <span>SEO 본문과 도구 UI 사이에 광고를 넣더라도 레이아웃이 흔들리지 않게 설계합니다.</span>
+          <p class="eyebrow">Text &amp; Data Tool</p>
+          <h1>Base64 Encoder / Decoder</h1>
+          <p class="hero-copy">
+            문자열을 Base64로 인코딩하거나 Base64 문자열을 다시 UTF-8 텍스트로 복원합니다.
+            파일 업로드 없이 브라우저에서만 처리합니다.
+          </p>
+          <div class="page-switcher">
+            <a href="/utility-tools/ko/">홈</a>
+            <a href="/utility-tools/ko/tools/">툴 목록</a>
+            <a href="/utility-tools/ko/tools/base64-encoder/" aria-current="page">Base64</a>
           </div>
         </section>
 
         <section
-          class="panel section"
+          class="panel"
           data-base64-app
           data-message-encoded="입력 문자열을 Base64로 인코딩했습니다."
           data-message-decoded="Base64 문자열을 일반 텍스트로 디코딩했습니다."
@@ -112,10 +80,9 @@
           <div class="section-head">
             <div>
               <p class="eyebrow">Tool UI</p>
-              <h2 class="section-title">실제 사용 영역</h2>
+              <h2 class="section-title">바로 사용</h2>
             </div>
           </div>
-
           <div class="tool-workspace">
             <div class="field-group">
               <label for="base64-input-ko">입력</label>
@@ -128,13 +95,7 @@
               <div class="button-row">
                 <button class="action-button primary" type="button" data-action="encode">인코딩</button>
                 <button class="action-button secondary" type="button" data-action="decode">디코딩</button>
-                <button
-                  class="action-button ghost"
-                  type="button"
-                  data-example-input="전시개발팀 워크숍"
-                >
-                  예시 텍스트
-                </button>
+                <button class="action-button ghost" type="button" data-example-input="전시개발팀 워크숍">예시 텍스트</button>
                 <button
                   class="action-button ghost"
                   type="button"
@@ -145,7 +106,6 @@
                 </button>
               </div>
             </div>
-
             <div class="result-panel">
               <div class="field-group">
                 <label for="base64-output-ko">결과</label>
@@ -169,85 +129,43 @@
         </section>
 
         <section class="section">
-          <div class="guide-grid">
-            <article class="guide-list">
-              <h3>예시 입력/출력</h3>
-              <ol>
-                <li><strong>입력:</strong> <span class="mono">hello world</span></li>
-                <li><strong>출력:</strong> <span class="mono">aGVsbG8gd29ybGQ=</span></li>
-                <li><strong>디코딩:</strong> 같은 값을 다시 넣으면 원문으로 복원됩니다.</li>
+          <div class="simple-grid">
+            <article class="info-block">
+              <h3>사용 예시</h3>
+              <ol class="list-plain">
+                <li><span class="mono">hello world</span>를 넣고 인코딩하면 <span class="mono">aGVsbG8gd29ybGQ=</span>가 됩니다.</li>
+                <li>같은 값을 다시 넣고 디코딩하면 원문으로 복원됩니다.</li>
               </ol>
             </article>
-            <article class="guide-list">
+            <article class="info-block">
               <h3>사용 방법</h3>
-              <ol>
-                <li>문자열 또는 Base64 값을 입력 영역에 붙여 넣습니다.</li>
-                <li>인코딩 또는 디코딩 버튼을 눌러 결과를 확인합니다.</li>
-                <li>필요하면 결과 복사 버튼으로 바로 가져갑니다.</li>
+              <ol class="list-plain">
+                <li>문자열 또는 Base64 값을 입력 영역에 넣습니다.</li>
+                <li>인코딩 또는 디코딩을 눌러 결과를 확인합니다.</li>
+                <li>필요하면 결과 복사 버튼으로 가져갑니다.</li>
               </ol>
             </article>
-            <article class="guide-list">
-              <h3>이런 상황에 유용합니다</h3>
-              <ul>
-                <li>API 요청 값 확인</li>
-                <li>간단한 텍스트 전달 포맷 변환</li>
-                <li>디버깅 중 Base64 payload 검사</li>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="simple-grid">
+            <article class="info-block">
+              <h3>자주 묻는 질문</h3>
+              <ul class="list-plain">
+                <li>처리는 모두 브라우저 안에서 이뤄집니다.</li>
+                <li>UTF-8 기준이라 한글도 인코딩할 수 있습니다.</li>
+                <li>잘못된 Base64는 오류 상태로 안내합니다.</li>
               </ul>
             </article>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="ad-slot">
-            <small>Ad Slot Placeholder</small>
-            <strong>본문 중간 슬롯</strong>
-            <span>툴 사용 중에도 CLS를 줄이기 위해 미리 고정 높이 영역을 둡니다.</span>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="section-head">
-            <div>
-              <p class="eyebrow">FAQ</p>
-              <h2 class="section-title">자주 묻는 질문</h2>
-            </div>
-          </div>
-          <div class="faq-grid">
-            <article class="faq-item">
-              <h3>파일 업로드가 필요한가요?</h3>
-              <p class="faq-answer">아니요. 이 페이지는 텍스트 입력만 받고 브라우저 안에서 바로 변환합니다.</p>
+            <article class="info-block">
+              <h3>관련 툴</h3>
+              <ul class="list-plain">
+                <li><a href="/utility-tools/ko/tools/">URL Encoder / Decoder</a></li>
+                <li><a href="/utility-tools/ko/tools/">JWT Decoder</a></li>
+                <li><a href="/utility-tools/ko/tools/">Random String Generator</a></li>
+              </ul>
             </article>
-            <article class="faq-item">
-              <h3>한글도 인코딩되나요?</h3>
-              <p class="faq-answer">UTF-8 기준으로 처리하므로 한글과 일본어 같은 문자열도 인코딩할 수 있습니다.</p>
-            </article>
-            <article class="faq-item">
-              <h3>잘못된 Base64를 넣으면 어떻게 되나요?</h3>
-              <p class="faq-answer">디코딩이 실패하면 오류 상태로 바뀌고 상태 메시지에 다시 확인하라는 안내를 보여줍니다.</p>
-            </article>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="section-head">
-            <div>
-              <p class="eyebrow">Related Tools</p>
-              <h2 class="section-title">관련 툴</h2>
-            </div>
-          </div>
-          <div class="related-grid">
-            <a class="related-card" href="/utility-tools/ko/tools/">
-              <h3>URL Encoder / Decoder</h3>
-              <p class="faq-answer">쿼리 문자열과 URL 파라미터를 안전하게 변환하는 다음 후보 툴입니다.</p>
-            </a>
-            <a class="related-card" href="/utility-tools/ko/tools/">
-              <h3>JWT Decoder</h3>
-              <p class="faq-answer">토큰 확인 흐름과 함께 자주 쓰이는 읽기 전용 보조 툴입니다.</p>
-            </a>
-            <a class="related-card" href="/utility-tools/ko/tools/">
-              <h3>Random String Generator</h3>
-              <p class="faq-answer">테스트용 임시 문자열을 만들고 복사하기 좋은 생성기입니다.</p>
-            </a>
           </div>
         </section>
       </main>

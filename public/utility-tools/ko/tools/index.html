@@ -14,10 +14,7 @@
     <link rel="alternate" hreflang="ja" href="https://pages.tngusdl3719.workers.dev/utility-tools/ja/tools/" />
     <link rel="alternate" hreflang="x-default" href="https://pages.tngusdl3719.workers.dev/utility-tools/" />
     <meta property="og:title" content="전체 툴 목록" />
-    <meta
-      property="og:description"
-      content="카테고리별로 정리된 정적 유틸 툴 카탈로그입니다."
-    />
+    <meta property="og:description" content="카테고리별로 정리된 정적 유틸 툴 카탈로그입니다." />
     <meta property="og:url" content="https://pages.tngusdl3719.workers.dev/utility-tools/ko/tools/" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -40,122 +37,127 @@
         </div>
       </header>
 
-      <main>
+      <main class="page-stack">
         <section class="hero">
-          <div class="section-head">
-            <div>
-              <p class="eyebrow">Tool Catalog</p>
-              <h1>카테고리별 전체 툴 목록</h1>
-              <p class="hero-copy">
-                내부 링크 구조를 강화하기 위한 허브 페이지입니다. 현재는 Base64 상세 페이지만
-                실제 동작 상태이며, 나머지 툴은 같은 구조로 확장할 수 있게 카드만 먼저 배치했습니다.
-              </p>
-            </div>
-            <div class="page-switcher">
-              <a href="/utility-tools/ko/">홈</a>
-              <a href="/utility-tools/ko/tools/" aria-current="page">툴 목록</a>
-              <a href="/utility-tools/ko/tools/base64-encoder/">Base64</a>
-            </div>
-          </div>
-
-          <div class="chip-row">
-            <a href="#text-data">텍스트 &amp; 데이터</a>
-            <a href="#security">보안</a>
-            <a href="#productivity">생산성</a>
-            <a href="#finance">계산 &amp; 금융</a>
-            <a href="#conversion">변환</a>
-          </div>
+          <p class="eyebrow">Tool Catalog</p>
+          <h1>카테고리별 전체 툴 목록</h1>
+          <p class="hero-copy">
+            카드 묶음 대신 한 번에 훑기 쉬운 목록형 구조로 정리했습니다. 현재는 Base64
+            페이지가 실제 동작하고, 나머지는 같은 방식으로 이어서 확장할 예정입니다.
+          </p>
         </section>
 
-        <section class="section" id="text-data">
+        <section class="section">
           <div class="section-head">
             <div>
               <p class="eyebrow">Text &amp; Data</p>
-              <h2 class="section-title">복사/붙여넣기 중심 툴</h2>
+              <h2 class="section-title">문자열과 데이터 가공</h2>
             </div>
           </div>
-          <div class="tool-grid">
-            <article class="tool-card live">
-              <div class="card-top">
-                <span class="pill live">사용 가능</span>
-                <span class="pill">추천</span>
+          <div class="tool-list">
+            <a class="tool-row" href="/utility-tools/ko/tools/base64-encoder/">
+              <div class="row-main">
+                <p class="row-label">사용 가능</p>
+                <h3 class="row-title">Base64 Encoder / Decoder</h3>
+                <p class="row-copy">UTF-8 문자열을 Base64로 변환하거나 다시 일반 문자열로 복원합니다.</p>
               </div>
-              <h3 class="tool-name">Base64 Encoder / Decoder</h3>
-              <p class="card-copy">UTF-8 문자열을 Base64로 변환하거나 Base64를 다시 복원합니다.</p>
-              <div class="card-actions">
-                <a class="button primary" href="/utility-tools/ko/tools/base64-encoder/">상세 보기</a>
+              <span class="row-meta">Text &amp; Data</span>
+              <span class="row-status live">Live</span>
+            </a>
+            <div class="tool-row">
+              <div class="row-main">
+                <p class="row-label">준비 중</p>
+                <h3 class="row-title">URL Encoder / Decoder</h3>
+                <p class="row-copy">쿼리 문자열과 URL 파라미터를 안전하게 인코딩/디코딩합니다.</p>
               </div>
-            </article>
-            <article class="tool-card coming">
-              <div class="card-top">
-                <span class="pill coming">준비 중</span>
+              <span class="row-meta">Text &amp; Data</span>
+              <span class="row-status">Soon</span>
+            </div>
+            <div class="tool-row">
+              <div class="row-main">
+                <p class="row-label">준비 중</p>
+                <h3 class="row-title">Random String Generator</h3>
+                <p class="row-copy">길이와 문자 조합 옵션으로 테스트용 문자열을 생성합니다.</p>
               </div>
-              <h3 class="tool-name">URL Encoder / Decoder</h3>
-              <p class="card-copy">쿼리 문자열과 URL 파라미터를 안전하게 인코딩/디코딩합니다.</p>
-            </article>
-            <article class="tool-card coming">
-              <div class="card-top">
-                <span class="pill coming">준비 중</span>
-              </div>
-              <h3 class="tool-name">Random String Generator</h3>
-              <p class="card-copy">길이와 문자 조합 옵션으로 랜덤 문자열을 생성합니다.</p>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" id="security">
-          <div class="tool-grid">
-            <article class="tool-card coming">
-              <h3 class="tool-name">JWT Decoder</h3>
-              <p class="card-copy">토큰의 구조를 빠르게 파악할 수 있는 읽기 전용 디코더입니다.</p>
-            </article>
-            <article class="tool-card coming">
-              <h3 class="tool-name">SHA Hash Generator</h3>
-              <p class="card-copy">텍스트 입력을 SHA 해시 값으로 변환해 비교 작업을 돕습니다.</p>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" id="productivity">
-          <div class="tool-grid">
-            <article class="tool-card coming">
-              <h3 class="tool-name">UUID Generator</h3>
-              <p class="card-copy">클립보드에 바로 복사하기 쉬운 UUID를 연속 생성합니다.</p>
-            </article>
-            <article class="tool-card coming">
-              <h3 class="tool-name">Date Difference Calculator</h3>
-              <p class="card-copy">두 날짜 사이의 일수, 주수, 월수 차이를 빠르게 계산합니다.</p>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" id="finance">
-          <div class="tool-grid">
-            <article class="tool-card coming">
-              <h3 class="tool-name">Loan Interest Calculator</h3>
-              <p class="card-copy">원금과 기간에 따라 예상 상환 부담을 계산합니다.</p>
-            </article>
-            <article class="tool-card coming">
-              <h3 class="tool-name">Percent Calculator</h3>
-              <p class="card-copy">증감률, 할인율, 비율 계산을 한 화면에서 처리합니다.</p>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" id="conversion">
-          <div class="tool-grid">
-            <article class="tool-card coming">
-              <h3 class="tool-name">Unit Converter</h3>
-              <p class="card-copy">길이, 무게, 온도 같은 단위를 빠르게 변환합니다.</p>
-            </article>
+              <span class="row-meta">Text &amp; Data</span>
+              <span class="row-status">Soon</span>
+            </div>
           </div>
         </section>
 
         <section class="section">
-          <div class="ad-slot">
-            <small>Ad Slot Placeholder</small>
-            <strong>본문 중간 슬롯</strong>
-            <span>카탈로그 페이지에도 광고를 넣을 수 있도록 고정 높이 영역을 미리 확보했습니다.</span>
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Security</p>
+              <h2 class="section-title">읽기 전용 확인 툴</h2>
+            </div>
+          </div>
+          <div class="tool-list">
+            <div class="tool-row">
+              <div class="row-main">
+                <p class="row-label">준비 중</p>
+                <h3 class="row-title">JWT Decoder</h3>
+                <p class="row-copy">토큰의 구조를 빠르게 파악할 수 있는 읽기 전용 디코더입니다.</p>
+              </div>
+              <span class="row-meta">Security</span>
+              <span class="row-status">Soon</span>
+            </div>
+            <div class="tool-row">
+              <div class="row-main">
+                <p class="row-label">준비 중</p>
+                <h3 class="row-title">SHA Hash Generator</h3>
+                <p class="row-copy">텍스트 입력을 SHA 해시 값으로 변환해 비교 작업을 돕습니다.</p>
+              </div>
+              <span class="row-meta">Security</span>
+              <span class="row-status">Soon</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Calculator &amp; Conversion</p>
+              <h2 class="section-title">계산과 변환</h2>
+            </div>
+          </div>
+          <div class="tool-list">
+            <div class="tool-row">
+              <div class="row-main">
+                <p class="row-label">준비 중</p>
+                <h3 class="row-title">Date Difference Calculator</h3>
+                <p class="row-copy">두 날짜 사이의 일수, 주수, 월수 차이를 빠르게 계산합니다.</p>
+              </div>
+              <span class="row-meta">Calculator</span>
+              <span class="row-status">Soon</span>
+            </div>
+            <div class="tool-row">
+              <div class="row-main">
+                <p class="row-label">준비 중</p>
+                <h3 class="row-title">Loan Interest Calculator</h3>
+                <p class="row-copy">원금과 기간에 따라 예상 상환 부담을 계산합니다.</p>
+              </div>
+              <span class="row-meta">Finance</span>
+              <span class="row-status">Soon</span>
+            </div>
+            <div class="tool-row">
+              <div class="row-main">
+                <p class="row-label">준비 중</p>
+                <h3 class="row-title">Percent Calculator</h3>
+                <p class="row-copy">증감률, 할인율, 비율 계산을 한 화면에서 처리합니다.</p>
+              </div>
+              <span class="row-meta">Calculator</span>
+              <span class="row-status">Soon</span>
+            </div>
+            <div class="tool-row">
+              <div class="row-main">
+                <p class="row-label">준비 중</p>
+                <h3 class="row-title">Unit Converter</h3>
+                <p class="row-copy">길이, 무게, 온도 같은 단위를 빠르게 변환합니다.</p>
+              </div>
+              <span class="row-meta">Conversion</span>
+              <span class="row-status">Soon</span>
+            </div>
           </div>
         </section>
       </main>

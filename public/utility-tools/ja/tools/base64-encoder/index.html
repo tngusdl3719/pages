@@ -51,27 +51,23 @@
         </div>
       </header>
 
-      <main>
+      <main class="page-stack">
         <section class="hero">
-          <div class="section-head">
-            <div>
-              <p class="eyebrow">Text &amp; Data Tool</p>
-              <h1>Base64 Encoder / Decoder</h1>
-              <p class="hero-copy">
-                通常の文字列をBase64へ変換し、Base64文字列をUTF-8テキストへ戻します。
-                すべての処理はブラウザで完結し、バックエンドは使いません。
-              </p>
-            </div>
-            <div class="page-switcher">
-              <a href="/utility-tools/ja/">ホーム</a>
-              <a href="/utility-tools/ja/tools/">ツール一覧</a>
-              <a href="/utility-tools/ja/tools/base64-encoder/" aria-current="page">Base64</a>
-            </div>
+          <p class="eyebrow">Text &amp; Data Tool</p>
+          <h1>Base64 Encoder / Decoder</h1>
+          <p class="hero-copy">
+            文字列をBase64へ変換し、Base64文字列をUTF-8テキストへ戻します。
+            すべての処理はブラウザ内で完結します。
+          </p>
+          <div class="page-switcher">
+            <a href="/utility-tools/ja/">ホーム</a>
+            <a href="/utility-tools/ja/tools/">ツール一覧</a>
+            <a href="/utility-tools/ja/tools/base64-encoder/" aria-current="page">Base64</a>
           </div>
         </section>
 
         <section
-          class="panel section"
+          class="panel"
           data-base64-app
           data-message-encoded="入力文字列をBase64に変換しました。"
           data-message-decoded="Base64文字列を通常のテキストへ戻しました。"
@@ -84,10 +80,9 @@
           <div class="section-head">
             <div>
               <p class="eyebrow">Tool UI</p>
-              <h2 class="section-title">利用エリア</h2>
+              <h2 class="section-title">今すぐ使う</h2>
             </div>
           </div>
-
           <div class="tool-workspace">
             <div class="field-group">
               <label for="base64-input-ja">入力</label>
@@ -100,9 +95,7 @@
               <div class="button-row">
                 <button class="action-button primary" type="button" data-action="encode">エンコード</button>
                 <button class="action-button secondary" type="button" data-action="decode">デコード</button>
-                <button class="action-button ghost" type="button" data-example-input="静的ユーティリティツール">
-                  例文
-                </button>
+                <button class="action-button ghost" type="button" data-example-input="静的ユーティリティツール">例文</button>
                 <button
                   class="action-button ghost"
                   type="button"
@@ -113,7 +106,6 @@
                 </button>
               </div>
             </div>
-
             <div class="result-panel">
               <div class="field-group">
                 <label for="base64-output-ja">結果</label>
@@ -137,65 +129,43 @@
         </section>
 
         <section class="section">
-          <div class="guide-grid">
-            <article class="guide-list">
+          <div class="simple-grid">
+            <article class="info-block">
               <h3>使用例</h3>
-              <ol>
-                <li><strong>入力:</strong> <span class="mono">hello world</span></li>
-                <li><strong>出力:</strong> <span class="mono">aGVsbG8gd29ybGQ=</span></li>
-                <li><strong>デコード:</strong> 出力値を戻せば元の文字列になります。</li>
+              <ol class="list-plain">
+                <li><span class="mono">hello world</span> は <span class="mono">aGVsbG8gd29ybGQ=</span> に変換されます。</li>
+                <li>同じ値を戻してデコードすれば元の文字列になります。</li>
               </ol>
             </article>
-            <article class="guide-list">
+            <article class="info-block">
               <h3>使い方</h3>
-              <ol>
+              <ol class="list-plain">
                 <li>文字列またはBase64値を入力欄に貼り付けます。</li>
-                <li>目的に応じてエンコードまたはデコードを押します。</li>
-                <li>必要なら結果をコピーして次の作業に使います。</li>
+                <li>エンコードまたはデコードを選びます。</li>
+                <li>必要に応じて結果をコピーします。</li>
               </ol>
             </article>
-            <article class="guide-list">
-              <h3>よくある用途</h3>
-              <ul>
-                <li>エンコード済みペイロードの確認</li>
-                <li>テキストの簡易変換</li>
-                <li>デバッグ中のBase64文字列確認</li>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="simple-grid">
+            <article class="info-block">
+              <h3>FAQ</h3>
+              <ul class="list-plain">
+                <li>処理はすべてブラウザ内で完結します。</li>
+                <li>UTF-8前提なので日本語も扱えます。</li>
+                <li>無効なBase64値はエラーとして案内します。</li>
               </ul>
             </article>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="faq-grid">
-            <article class="faq-item">
-              <h3>入力内容は送信されますか?</h3>
-              <p class="faq-answer">いいえ。処理はブラウザ内だけで完結します。</p>
+            <article class="info-block">
+              <h3>関連ツール</h3>
+              <ul class="list-plain">
+                <li><a href="/utility-tools/ja/tools/">URL Encoder / Decoder</a></li>
+                <li><a href="/utility-tools/ja/tools/">JWT Decoder</a></li>
+                <li><a href="/utility-tools/ja/tools/">Random String Generator</a></li>
+              </ul>
             </article>
-            <article class="faq-item">
-              <h3>日本語も変換できますか?</h3>
-              <p class="faq-answer">UTF-8を前提にしているため、日本語や韓国語も扱えます。</p>
-            </article>
-            <article class="faq-item">
-              <h3>無効なBase64を入れるとどうなりますか?</h3>
-              <p class="faq-answer">エラー状態へ切り替え、入力値の確認を促すメッセージを表示します。</p>
-            </article>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="related-grid">
-            <a class="related-card" href="/utility-tools/ja/tools/">
-              <h3>URL Encoder / Decoder</h3>
-              <p class="faq-answer">クエリ文字列やURLパラメータの変換に向いた次候補ツールです。</p>
-            </a>
-            <a class="related-card" href="/utility-tools/ja/tools/">
-              <h3>JWT Decoder</h3>
-              <p class="faq-answer">トークン確認フローでBase64と合わせて使いやすい補助ツールです。</p>
-            </a>
-            <a class="related-card" href="/utility-tools/ja/tools/">
-              <h3>Random String Generator</h3>
-              <p class="faq-answer">テスト用の文字列をすばやく作る際に役立ちます。</p>
-            </a>
           </div>
         </section>
       </main>

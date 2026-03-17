@@ -37,101 +37,127 @@
         </div>
       </header>
 
-      <main>
+      <main class="page-stack">
         <section class="hero">
+          <p class="eyebrow">Tool Catalog</p>
+          <h1>All tools in a simple list</h1>
+          <p class="hero-copy">
+            The catalog now focuses on scan speed. Base64 is already working, and the rest of the
+            roadmap stays visible without turning the page into a wall of cards.
+          </p>
+        </section>
+
+        <section class="section">
           <div class="section-head">
             <div>
-              <p class="eyebrow">Tool Catalog</p>
-              <h1>All tools grouped by category</h1>
-              <p class="hero-copy">
-                This hub supports internal linking and future expansion. Base64 is implemented
-                as a working page, while the remaining cards map out the initial product scope.
-              </p>
-            </div>
-            <div class="page-switcher">
-              <a href="/utility-tools/en/">Home</a>
-              <a href="/utility-tools/en/tools/" aria-current="page">Tools</a>
-              <a href="/utility-tools/en/tools/base64-encoder/">Base64</a>
+              <p class="eyebrow">Text &amp; Data</p>
+              <h2 class="section-title">String and data helpers</h2>
             </div>
           </div>
-          <div class="chip-row">
-            <a href="#text-data">Text &amp; Data</a>
-            <a href="#security">Security</a>
-            <a href="#productivity">Productivity</a>
-            <a href="#finance">Finance &amp; Math</a>
-            <a href="#conversion">Conversion</a>
-          </div>
-        </section>
-
-        <section class="section" id="text-data">
-          <div class="tool-grid">
-            <article class="tool-card live">
-              <div class="card-top">
-                <span class="pill live">Live</span>
-                <span class="pill">Featured</span>
+          <div class="tool-list">
+            <a class="tool-row" href="/utility-tools/en/tools/base64-encoder/">
+              <div class="row-main">
+                <p class="row-label">Available now</p>
+                <h3 class="row-title">Base64 Encoder / Decoder</h3>
+                <p class="row-copy">Convert UTF-8 text to Base64 and decode Base64 back into text.</p>
               </div>
-              <h3 class="tool-name">Base64 Encoder / Decoder</h3>
-              <p class="card-copy">Convert UTF-8 text to Base64 and decode Base64 back to text.</p>
-              <div class="card-actions">
-                <a class="button primary" href="/utility-tools/en/tools/base64-encoder/">Open details</a>
+              <span class="row-meta">Text &amp; Data</span>
+              <span class="row-status live">Live</span>
+            </a>
+            <div class="tool-row">
+              <div class="row-main">
+                <p class="row-label">Coming soon</p>
+                <h3 class="row-title">URL Encoder / Decoder</h3>
+                <p class="row-copy">Escape and unescape query-string values safely in the browser.</p>
               </div>
-            </article>
-            <article class="tool-card coming">
-              <h3 class="tool-name">URL Encoder / Decoder</h3>
-              <p class="card-copy">Escape and unescape query-string values safely in the browser.</p>
-            </article>
-            <article class="tool-card coming">
-              <h3 class="tool-name">Random String Generator</h3>
-              <p class="card-copy">Generate test strings with configurable character sets and length.</p>
-            </article>
+              <span class="row-meta">Text &amp; Data</span>
+              <span class="row-status">Soon</span>
+            </div>
+            <div class="tool-row">
+              <div class="row-main">
+                <p class="row-label">Coming soon</p>
+                <h3 class="row-title">Random String Generator</h3>
+                <p class="row-copy">Generate quick test strings with configurable length and character sets.</p>
+              </div>
+              <span class="row-meta">Text &amp; Data</span>
+              <span class="row-status">Soon</span>
+            </div>
           </div>
         </section>
 
-        <section class="section" id="security">
-          <div class="tool-grid">
-            <article class="tool-card coming">
-              <h3 class="tool-name">JWT Decoder</h3>
-              <p class="card-copy">Inspect token structure without sending anything to a server.</p>
-            </article>
-            <article class="tool-card coming">
-              <h3 class="tool-name">SHA Hash Generator</h3>
-              <p class="card-copy">Create hash outputs for quick text comparison tasks.</p>
-            </article>
+        <section class="section">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Security</p>
+              <h2 class="section-title">Read-only inspection tools</h2>
+            </div>
+          </div>
+          <div class="tool-list">
+            <div class="tool-row">
+              <div class="row-main">
+                <p class="row-label">Coming soon</p>
+                <h3 class="row-title">JWT Decoder</h3>
+                <p class="row-copy">Inspect token structure without sending the value to a server.</p>
+              </div>
+              <span class="row-meta">Security</span>
+              <span class="row-status">Soon</span>
+            </div>
+            <div class="tool-row">
+              <div class="row-main">
+                <p class="row-label">Coming soon</p>
+                <h3 class="row-title">SHA Hash Generator</h3>
+                <p class="row-copy">Create hash outputs for quick text-comparison workflows.</p>
+              </div>
+              <span class="row-meta">Security</span>
+              <span class="row-status">Soon</span>
+            </div>
           </div>
         </section>
 
-        <section class="section" id="productivity">
-          <div class="tool-grid">
-            <article class="tool-card coming">
-              <h3 class="tool-name">UUID Generator</h3>
-              <p class="card-copy">Generate copy-ready UUID values for local development flows.</p>
-            </article>
-            <article class="tool-card coming">
-              <h3 class="tool-name">Date Difference Calculator</h3>
-              <p class="card-copy">Measure days, weeks, and months between two dates.</p>
-            </article>
+        <section class="section">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Calculators &amp; Conversion</p>
+              <h2 class="section-title">Math and utility helpers</h2>
+            </div>
           </div>
-        </section>
-
-        <section class="section" id="finance">
-          <div class="tool-grid">
-            <article class="tool-card coming">
-              <h3 class="tool-name">Loan Interest Calculator</h3>
-              <p class="card-copy">Estimate repayment burden using principal, rate, and duration.</p>
-            </article>
-            <article class="tool-card coming">
-              <h3 class="tool-name">Percent Calculator</h3>
-              <p class="card-copy">Handle discount, growth, and ratio calculations in one place.</p>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" id="conversion">
-          <div class="tool-grid">
-            <article class="tool-card coming">
-              <h3 class="tool-name">Unit Converter</h3>
-              <p class="card-copy">Convert length, weight, temperature, and other common units.</p>
-            </article>
+          <div class="tool-list">
+            <div class="tool-row">
+              <div class="row-main">
+                <p class="row-label">Coming soon</p>
+                <h3 class="row-title">Date Difference Calculator</h3>
+                <p class="row-copy">Measure days, weeks, and months between two dates.</p>
+              </div>
+              <span class="row-meta">Calculator</span>
+              <span class="row-status">Soon</span>
+            </div>
+            <div class="tool-row">
+              <div class="row-main">
+                <p class="row-label">Coming soon</p>
+                <h3 class="row-title">Loan Interest Calculator</h3>
+                <p class="row-copy">Estimate repayment burden using principal, rate, and duration.</p>
+              </div>
+              <span class="row-meta">Finance</span>
+              <span class="row-status">Soon</span>
+            </div>
+            <div class="tool-row">
+              <div class="row-main">
+                <p class="row-label">Coming soon</p>
+                <h3 class="row-title">Percent Calculator</h3>
+                <p class="row-copy">Handle discounts, growth, and percentage deltas in one place.</p>
+              </div>
+              <span class="row-meta">Calculator</span>
+              <span class="row-status">Soon</span>
+            </div>
+            <div class="tool-row">
+              <div class="row-main">
+                <p class="row-label">Coming soon</p>
+                <h3 class="row-title">Unit Converter</h3>
+                <p class="row-copy">Convert length, weight, temperature, and other common units.</p>
+              </div>
+              <span class="row-meta">Conversion</span>
+              <span class="row-status">Soon</span>
+            </div>
           </div>
         </section>
       </main>
