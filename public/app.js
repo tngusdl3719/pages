@@ -146,7 +146,7 @@ function showCompletionState() {
   updateScore({ reveal: true });
 }
 
-function drawNextQuiz({ reset = false } = {}) {
+function drawRandomQuiz({ reset = false } = {}) {
   if (reset) {
     refillPool();
     state.round = 0;
@@ -159,7 +159,8 @@ function drawNextQuiz({ reset = false } = {}) {
     return;
   }
 
-  const quizIndex = state.pool.shift();
+  const pick = Math.floor(Math.random() * state.pool.length);
+  const [quizIndex] = state.pool.splice(pick, 1);
   showQuiz(quizIndex);
 }
 
@@ -187,7 +188,7 @@ function scoreCorrectAnswer() {
 }
 
 startButton.addEventListener("click", () => {
-  drawNextQuiz({ reset: true });
+  drawRandomQuiz({ reset: true });
 });
 
 answerButton.addEventListener("click", revealAnswer);
@@ -195,7 +196,7 @@ answerButton.addEventListener("click", revealAnswer);
 correctButton.addEventListener("click", scoreCorrectAnswer);
 
 nextButton.addEventListener("click", () => {
-  drawNextQuiz();
+  drawRandomQuiz();
 });
 
 endButton.addEventListener("click", showCompletionState);
