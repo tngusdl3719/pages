@@ -41,6 +41,7 @@ const quizzes = [
 
 const totalCount = document.querySelector("#total-count");
 const gameStatus = document.querySelector("#game-status");
+const scoreCount = document.querySelector("#score-count");
 const stageTitle = document.querySelector("#stage-title");
 const remainingPill = document.querySelector("#remaining-pill");
 const sceneImage = document.querySelector("#scene-image");
@@ -55,12 +56,15 @@ const answerQuote = document.querySelector("#answer-quote");
 const answerMovie = document.querySelector("#answer-movie");
 const startButton = document.querySelector("#start-button");
 const answerButton = document.querySelector("#answer-button");
+const correctButton = document.querySelector("#correct-button");
 const nextButton = document.querySelector("#next-button");
 
 const state = {
   pool: [],
   currentQuiz: null,
   round: 0,
+  score: 0,
+  isCurrentScored: false,
 };
 
 totalCount.textContent = String(quizzes.length);
@@ -112,10 +116,15 @@ function resetAnswerPanel() {
   answerMovie.textContent = "";
 }
 
+function updateScore() {
+  scoreCount.textContent = String(state.score);
+}
+
 function showQuiz(index) {
   const quiz = quizzes[index];
   state.currentQuiz = quiz;
   state.round += 1;
+  state.isCurrentScored = false;
 
   restorePlaceholder();
   sceneImage.src = quiz.image;
@@ -128,6 +137,7 @@ function showQuiz(index) {
   resetAnswerPanel();
 
   answerButton.disabled = false;
+  correctButton.disabled = false;
   nextButton.disabled = false;
   startButton.textContent = "처음부터 다시 시작";
 
@@ -136,6 +146,7 @@ function showQuiz(index) {
 
 function showCompletionState() {
   state.currentQuiz = null;
+  state.isCurrentScored = false;
 
   sceneImage.hidden = true;
   sceneImage.removeAttribute("src");
@@ -154,6 +165,7 @@ function showCompletionState() {
   resetAnswerPanel();
 
   answerButton.disabled = true;
+  correctButton.disabled = true;
   nextButton.disabled = true;
   startButton.textContent = "다시 시작";
 
@@ -165,6 +177,8 @@ function drawRandomQuiz({ reset = false } = {}) {
   if (reset) {
     refillPool();
     state.round = 0;
+    state.score = 0;
+    updateScore();
   }
 
   if (state.pool.length === 0) {
@@ -190,14 +204,28 @@ function revealAnswer() {
   gameStatus.textContent = `정답 공개 ${state.round}`;
 }
 
+function scoreCorrectAnswer() {
+  if (!state.currentQuiz || state.isCurrentScored) {
+    return;
+  }
+
+  state.score += 1;
+  state.isCurrentScored = true;
+  correctButton.disabled = true;
+  updateScore();
+}
+
 startButton.addEventListener("click", () => {
   drawRandomQuiz({ reset: true });
 });
 
 answerButton.addEventListener("click", revealAnswer);
 
+correctButton.addEventListener("click", scoreCorrectAnswer);
+
 nextButton.addEventListener("click", () => {
   drawRandomQuiz();
 });
 
+updateScore();
 updateStaticLabels();
