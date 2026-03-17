@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Base64 Encoder / Decoder | 無料ユーティリティツール</title>
+    <meta
+      name="description"
+      content="ブラウザ内で動作するBase64エンコーダー/デコーダーです。UTF-8文字列、コピー、リセット、FAQ、関連ツールリンクを含みます。"
+    />
+    <link rel="canonical" href="https://pages.tngusdl3719.workers.dev/utility-tools/ja/tools/base64-encoder/" />
+    <link rel="alternate" hreflang="ko" href="https://pages.tngusdl3719.workers.dev/utility-tools/ko/tools/base64-encoder/" />
+    <link rel="alternate" hreflang="en" href="https://pages.tngusdl3719.workers.dev/utility-tools/en/tools/base64-encoder/" />
+    <link rel="alternate" hreflang="ja" href="https://pages.tngusdl3719.workers.dev/utility-tools/ja/tools/base64-encoder/" />
+    <link rel="alternate" hreflang="x-default" href="https://pages.tngusdl3719.workers.dev/utility-tools/" />
+    <meta property="og:title" content="Base64 Encoder / Decoder" />
+    <meta property="og:description" content="ブラウザで動作するBase64詳細ページです。" />
+    <meta property="og:url" content="https://pages.tngusdl3719.workers.dev/utility-tools/ja/tools/base64-encoder/" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="/utility-tools/styles.css" />
+    <script defer src="/utility-tools/base64.js"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Base64 Encoder / Decoder",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "inLanguage": "ja",
+        "url": "https://pages.tngusdl3719.workers.dev/utility-tools/ja/tools/base64-encoder/",
+        "description": "ブラウザで文字列をBase64へ変換・復元する無料ツール"
+      }
+    </script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="/utility-tools/ja/">
+          <span class="brand-mark">UT</span>
+          <span class="brand-copy">
+            Utility Tools
+            <small>Base64詳細ページ</small>
+          </span>
+        </a>
+        <div class="lang-switcher" aria-label="言語切り替え">
+          <a href="/utility-tools/ko/tools/base64-encoder/">한국어</a>
+          <a href="/utility-tools/en/tools/base64-encoder/">English</a>
+          <a href="/utility-tools/ja/tools/base64-encoder/" aria-current="page">日本語</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Text &amp; Data Tool</p>
+              <h1>Base64 Encoder / Decoder</h1>
+              <p class="hero-copy">
+                通常の文字列をBase64へ変換し、Base64文字列をUTF-8テキストへ戻します。
+                すべての処理はブラウザで完結し、バックエンドは使いません。
+              </p>
+            </div>
+            <div class="page-switcher">
+              <a href="/utility-tools/ja/">ホーム</a>
+              <a href="/utility-tools/ja/tools/">ツール一覧</a>
+              <a href="/utility-tools/ja/tools/base64-encoder/" aria-current="page">Base64</a>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="panel section"
+          data-base64-app
+          data-message-encoded="入力文字列をBase64に変換しました。"
+          data-message-decoded="Base64文字列を通常のテキストへ戻しました。"
+          data-message-copied="結果をクリップボードにコピーしました。"
+          data-message-copy-empty="コピーする結果がまだありません。"
+          data-message-copy-failed="コピーに失敗しました。結果を手動で選択してください。"
+          data-message-decode-failed="正しいBase64文字列かどうか確認してください。"
+          data-message-reset="入力と結果を初期化しました。"
+        >
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Tool UI</p>
+              <h2 class="section-title">利用エリア</h2>
+            </div>
+          </div>
+
+          <div class="tool-workspace">
+            <div class="field-group">
+              <label for="base64-input-ja">入力</label>
+              <textarea
+                class="textarea"
+                id="base64-input-ja"
+                data-role="input"
+                placeholder="通常の文字列またはBase64文字列をここに貼り付けてください。"
+              ></textarea>
+              <div class="button-row">
+                <button class="action-button primary" type="button" data-action="encode">エンコード</button>
+                <button class="action-button secondary" type="button" data-action="decode">デコード</button>
+                <button class="action-button ghost" type="button" data-example-input="静的ユーティリティツール">
+                  例文
+                </button>
+                <button
+                  class="action-button ghost"
+                  type="button"
+                  data-example-input="6Z2Z55qE44Om44O844OG44Kj44Oq44OG44Kj44OE44O844Or"
+                  data-example-mode="decode"
+                >
+                  例Base64
+                </button>
+              </div>
+            </div>
+
+            <div class="result-panel">
+              <div class="field-group">
+                <label for="base64-output-ja">結果</label>
+                <div class="result-box" data-role="result-box" data-state="idle">
+                  <textarea
+                    class="textarea"
+                    id="base64-output-ja"
+                    data-role="output"
+                    readonly
+                    placeholder="ここに結果が表示されます。"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="button-row">
+                <button class="action-button primary" type="button" data-action="copy">結果をコピー</button>
+                <button class="action-button ghost" type="button" data-action="reset">リセット</button>
+              </div>
+              <div class="status-line" data-role="status" aria-live="polite"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="guide-grid">
+            <article class="guide-list">
+              <h3>使用例</h3>
+              <ol>
+                <li><strong>入力:</strong> <span class="mono">hello world</span></li>
+                <li><strong>出力:</strong> <span class="mono">aGVsbG8gd29ybGQ=</span></li>
+                <li><strong>デコード:</strong> 出力値を戻せば元の文字列になります。</li>
+              </ol>
+            </article>
+            <article class="guide-list">
+              <h3>使い方</h3>
+              <ol>
+                <li>文字列またはBase64値を入力欄に貼り付けます。</li>
+                <li>目的に応じてエンコードまたはデコードを押します。</li>
+                <li>必要なら結果をコピーして次の作業に使います。</li>
+              </ol>
+            </article>
+            <article class="guide-list">
+              <h3>よくある用途</h3>
+              <ul>
+                <li>エンコード済みペイロードの確認</li>
+                <li>テキストの簡易変換</li>
+                <li>デバッグ中のBase64文字列確認</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="faq-grid">
+            <article class="faq-item">
+              <h3>入力内容は送信されますか?</h3>
+              <p class="faq-answer">いいえ。処理はブラウザ内だけで完結します。</p>
+            </article>
+            <article class="faq-item">
+              <h3>日本語も変換できますか?</h3>
+              <p class="faq-answer">UTF-8を前提にしているため、日本語や韓国語も扱えます。</p>
+            </article>
+            <article class="faq-item">
+              <h3>無効なBase64を入れるとどうなりますか?</h3>
+              <p class="faq-answer">エラー状態へ切り替え、入力値の確認を促すメッセージを表示します。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="related-grid">
+            <a class="related-card" href="/utility-tools/ja/tools/">
+              <h3>URL Encoder / Decoder</h3>
+              <p class="faq-answer">クエリ文字列やURLパラメータの変換に向いた次候補ツールです。</p>
+            </a>
+            <a class="related-card" href="/utility-tools/ja/tools/">
+              <h3>JWT Decoder</h3>
+              <p class="faq-answer">トークン確認フローでBase64と合わせて使いやすい補助ツールです。</p>
+            </a>
+            <a class="related-card" href="/utility-tools/ja/tools/">
+              <h3>Random String Generator</h3>
+              <p class="faq-answer">テスト用の文字列をすばやく作る際に役立ちます。</p>
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <small>Preview path: /utility-tools/ja/tools/base64-encoder/</small>
+        <div class="page-switcher">
+          <a href="/utility-tools/ja/">ホーム</a>
+          <a href="/utility-tools/ja/tools/">ツール一覧</a>
+          <a href="/utility-tools/ja/tools/base64-encoder/" aria-current="page">Base64</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Base64 Encoder / Decoder | Free Utility Tools</title>
+    <meta
+      name="description"
+      content="A browser-based Base64 encoder and decoder for UTF-8 text with copy, reset, examples, FAQ, and related-tool links."
+    />
+    <link rel="canonical" href="https://pages.tngusdl3719.workers.dev/utility-tools/en/tools/base64-encoder/" />
+    <link rel="alternate" hreflang="ko" href="https://pages.tngusdl3719.workers.dev/utility-tools/ko/tools/base64-encoder/" />
+    <link rel="alternate" hreflang="en" href="https://pages.tngusdl3719.workers.dev/utility-tools/en/tools/base64-encoder/" />
+    <link rel="alternate" hreflang="ja" href="https://pages.tngusdl3719.workers.dev/utility-tools/ja/tools/base64-encoder/" />
+    <link rel="alternate" hreflang="x-default" href="https://pages.tngusdl3719.workers.dev/utility-tools/" />
+    <meta property="og:title" content="Base64 Encoder / Decoder" />
+    <meta property="og:description" content="Detailed browser-based Base64 encoder and decoder page." />
+    <meta property="og:url" content="https://pages.tngusdl3719.workers.dev/utility-tools/en/tools/base64-encoder/" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="/utility-tools/styles.css" />
+    <script defer src="/utility-tools/base64.js"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Base64 Encoder / Decoder",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "inLanguage": "en",
+        "url": "https://pages.tngusdl3719.workers.dev/utility-tools/en/tools/base64-encoder/",
+        "description": "Free browser tool for Base64 encoding and decoding"
+      }
+    </script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="/utility-tools/en/">
+          <span class="brand-mark">UT</span>
+          <span class="brand-copy">
+            Utility Tools
+            <small>Base64 detail page</small>
+          </span>
+        </a>
+        <div class="lang-switcher" aria-label="Language switcher">
+          <a href="/utility-tools/ko/tools/base64-encoder/">한국어</a>
+          <a href="/utility-tools/en/tools/base64-encoder/" aria-current="page">English</a>
+          <a href="/utility-tools/ja/tools/base64-encoder/">日本語</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Text &amp; Data Tool</p>
+              <h1>Base64 Encoder / Decoder</h1>
+              <p class="hero-copy">
+                Encode plain text into Base64 or decode Base64 back into readable UTF-8 text.
+                Everything runs locally in the browser, so there is no backend dependency.
+              </p>
+            </div>
+            <div class="page-switcher">
+              <a href="/utility-tools/en/">Home</a>
+              <a href="/utility-tools/en/tools/">Tools</a>
+              <a href="/utility-tools/en/tools/base64-encoder/" aria-current="page">Base64</a>
+            </div>
+          </div>
+
+          <div class="ad-slot">
+            <small>Ad Slot Placeholder</small>
+            <strong>Top tool slot</strong>
+            <span>Reserved height keeps the layout stable when ads are enabled later.</span>
+          </div>
+        </section>
+
+        <section
+          class="panel section"
+          data-base64-app
+          data-message-encoded="The input text was encoded into Base64."
+          data-message-decoded="The Base64 string was decoded into plain text."
+          data-message-copied="The result was copied to your clipboard."
+          data-message-copy-empty="There is no result to copy yet."
+          data-message-copy-failed="Copy failed. Select the output manually and copy it."
+          data-message-decode-failed="Please check whether the input is a valid Base64 string."
+          data-message-reset="The input and output were cleared."
+        >
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Tool UI</p>
+              <h2 class="section-title">Live workspace</h2>
+            </div>
+          </div>
+
+          <div class="tool-workspace">
+            <div class="field-group">
+              <label for="base64-input-en">Input</label>
+              <textarea
+                class="textarea"
+                id="base64-input-en"
+                data-role="input"
+                placeholder="Paste plain text or a Base64 string here."
+              ></textarea>
+              <div class="button-row">
+                <button class="action-button primary" type="button" data-action="encode">Encode</button>
+                <button class="action-button secondary" type="button" data-action="decode">Decode</button>
+                <button class="action-button ghost" type="button" data-example-input="Utility tools preview">
+                  Example text
+                </button>
+                <button
+                  class="action-button ghost"
+                  type="button"
+                  data-example-input="VXRpbGl0eSB0b29scyBwcmV2aWV3"
+                  data-example-mode="decode"
+                >
+                  Example Base64
+                </button>
+              </div>
+            </div>
+
+            <div class="result-panel">
+              <div class="field-group">
+                <label for="base64-output-en">Result</label>
+                <div class="result-box" data-role="result-box" data-state="idle">
+                  <textarea
+                    class="textarea"
+                    id="base64-output-en"
+                    data-role="output"
+                    readonly
+                    placeholder="The output appears here."
+                  ></textarea>
+                </div>
+              </div>
+              <div class="button-row">
+                <button class="action-button primary" type="button" data-action="copy">Copy result</button>
+                <button class="action-button ghost" type="button" data-action="reset">Reset</button>
+              </div>
+              <div class="status-line" data-role="status" aria-live="polite"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="guide-grid">
+            <article class="guide-list">
+              <h3>Example input/output</h3>
+              <ol>
+                <li><strong>Input:</strong> <span class="mono">hello world</span></li>
+                <li><strong>Output:</strong> <span class="mono">aGVsbG8gd29ybGQ=</span></li>
+                <li><strong>Decode:</strong> Paste the output back in to restore the original text.</li>
+              </ol>
+            </article>
+            <article class="guide-list">
+              <h3>How to use it</h3>
+              <ol>
+                <li>Paste a string into the input area.</li>
+                <li>Choose Encode or Decode depending on your task.</li>
+                <li>Copy the result or clear the workspace for the next value.</li>
+              </ol>
+            </article>
+            <article class="guide-list">
+              <h3>Common use cases</h3>
+              <ul>
+                <li>Inspect encoded payload snippets</li>
+                <li>Prepare text for transport-safe formatting</li>
+                <li>Decode Base64 strings during debugging</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="faq-grid">
+            <article class="faq-item">
+              <h3>Does it upload my input?</h3>
+              <p class="faq-answer">No. Everything stays in the browser and is processed locally.</p>
+            </article>
+            <article class="faq-item">
+              <h3>Can it handle non-English text?</h3>
+              <p class="faq-answer">Yes. The tool handles UTF-8 text, so multilingual strings are supported.</p>
+            </article>
+            <article class="faq-item">
+              <h3>What if the Base64 value is invalid?</h3>
+              <p class="faq-answer">The tool switches to an error state and asks you to verify the input.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="related-grid">
+            <a class="related-card" href="/utility-tools/en/tools/">
+              <h3>URL Encoder / Decoder</h3>
+              <p class="faq-answer">Another text-focused helper for query strings and URL parameters.</p>
+            </a>
+            <a class="related-card" href="/utility-tools/en/tools/">
+              <h3>JWT Decoder</h3>
+              <p class="faq-answer">Pairs well with Base64 when inspecting token payloads.</p>
+            </a>
+            <a class="related-card" href="/utility-tools/en/tools/">
+              <h3>Random String Generator</h3>
+              <p class="faq-answer">Useful for generating quick test data alongside encoding workflows.</p>
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <small>Preview path: /utility-tools/en/tools/base64-encoder/</small>
+        <div class="page-switcher">
+          <a href="/utility-tools/en/">Home</a>
+          <a href="/utility-tools/en/tools/">Tools</a>
+          <a href="/utility-tools/en/tools/base64-encoder/" aria-current="page">Base64</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
