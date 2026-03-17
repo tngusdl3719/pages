@@ -43,6 +43,7 @@ const gameStatus = document.querySelector("#game-status");
 const scoreCount = document.querySelector("#score-count");
 const stageTitle = document.querySelector("#stage-title");
 const remainingPill = document.querySelector("#remaining-pill");
+const sceneImage = document.querySelector("#scene-image");
 const initialStage = document.querySelector("#initial-stage");
 const initialTicket = document.querySelector("#initial-ticket");
 const initialClue = document.querySelector("#initial-clue");
@@ -52,7 +53,6 @@ const answerPanel = document.querySelector("#answer-panel");
 const answerLabel = document.querySelector("#answer-label");
 const answerTitle = document.querySelector("#answer-title");
 const answerMeta = document.querySelector("#answer-meta");
-const answerImage = document.querySelector("#answer-image");
 const startButton = document.querySelector("#start-button");
 const answerButton = document.querySelector("#answer-button");
 const correctButton = document.querySelector("#correct-button");
@@ -100,6 +100,10 @@ function restoreStage() {
   initialTicket.textContent = defaultStage.ticket;
   initialClue.textContent = defaultStage.clue;
   initialCopy.textContent = defaultStage.copy;
+  initialStage.hidden = false;
+  sceneImage.hidden = true;
+  sceneImage.removeAttribute("src");
+  sceneImage.alt = "";
 }
 
 function updateStaticLabels() {
@@ -117,8 +121,6 @@ function resetAnswerPanel() {
   answerLabel.textContent = defaultAnswer.label;
   answerTitle.textContent = defaultAnswer.title;
   answerMeta.textContent = "";
-  answerImage.removeAttribute("src");
-  answerImage.alt = "";
 }
 
 function showQuiz(index) {
@@ -197,8 +199,10 @@ function revealAnswer() {
   answerLabel.textContent = "정답 공개";
   answerTitle.textContent = state.currentQuiz.title;
   answerMeta.textContent = `${state.currentQuiz.type} 정답`;
-  answerImage.src = state.currentQuiz.image;
-  answerImage.alt = state.currentQuiz.alt;
+  initialStage.hidden = true;
+  sceneImage.src = state.currentQuiz.image;
+  sceneImage.alt = state.currentQuiz.alt;
+  sceneImage.hidden = false;
   gameStatus.textContent = `정답 공개 ${state.round}`;
 }
 
