@@ -1,0 +1,21 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#100C10"/>
+  <rect width="1600" height="900" fill="url(#room)"/>
+  <rect x="0" y="615" width="1600" height="285" fill="#24161A"/>
+  <rect x="286" y="400" width="1028" height="250" rx="24" fill="#1A1114"/>
+  <rect x="336" y="438" width="936" height="180" rx="16" fill="#26181B"/>
+  <path d="M518 316H928L862 470H584L518 316Z" fill="#F0C47B"/>
+  <path d="M706 470H740V620H706V470Z" fill="#574038"/>
+  <rect x="996" y="480" width="102" height="22" rx="11" fill="#7A2E34"/>
+  <path d="M1090 494C1090 528 1062 556 1028 556C994 556 966 528 966 494C966 460 994 432 1028 432C1062 432 1090 460 1090 494Z" fill="#8D1C2C"/>
+  <path d="M1012 432C1012 404 1034 382 1062 382C1090 382 1112 404 1112 432V478H1012V432Z" fill="#142119"/>
+  <path d="M372 548C372 507 405 474 446 474H528V620H372V548Z" fill="#141012"/>
+  <circle cx="468" cy="470" r="40" fill="#141012"/>
+  <defs>
+    <linearGradient id="room" x1="800" y1="0" x2="800" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22161A"/>
+      <stop offset="0.5" stop-color="#140E11"/>
+      <stop offset="1" stop-color="#090607"/>
+    </linearGradient>
+  </defs>
+</svg>

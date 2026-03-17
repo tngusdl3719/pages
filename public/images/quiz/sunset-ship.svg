@@ -1,0 +1,28 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#1B1220"/>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <circle cx="820" cy="322" r="142" fill="#FFC977"/>
+  <path d="M0 545H1600V900H0V545Z" fill="url(#sea)"/>
+  <path d="M448 520L1150 458L1300 525L1374 608H470L448 520Z" fill="#191319"/>
+  <path d="M628 470H900V500H628V470Z" fill="#2A1C22"/>
+  <path d="M984 440H1086V462H984V440Z" fill="#2A1C22"/>
+  <path d="M1124 432H1150V520H1124V432Z" fill="#22161B"/>
+  <path d="M616 489H642V554H616V489Z" fill="#191319"/>
+  <path d="M676 505C689 505 700 517 700 531V567H652V531C652 517 663 505 676 505Z" fill="#191319"/>
+  <circle cx="678" cy="490" r="18" fill="#191319"/>
+  <path d="M742 493H768V558H742V493Z" fill="#191319"/>
+  <path d="M808 513C823 513 835 525 835 541V567H775V541C775 525 787 513 802 513H808Z" fill="#191319"/>
+  <circle cx="796" cy="498" r="18" fill="#191319"/>
+  <path d="M660 548L790 522L820 548L690 575L660 548Z" fill="#191319"/>
+  <defs>
+    <linearGradient id="sky" x1="800" y1="0" x2="800" y2="545" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4C2037"/>
+      <stop offset="0.55" stop-color="#AA4A4A"/>
+      <stop offset="1" stop-color="#F28D52"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="800" y1="545" x2="800" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2A2E47"/>
+      <stop offset="1" stop-color="#0F111B"/>
+    </linearGradient>
+  </defs>
+</svg>
