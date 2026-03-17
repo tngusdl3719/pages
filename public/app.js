@@ -110,7 +110,7 @@ function showQuiz(index) {
   placeholder.hidden = true;
 
   stageTitle.textContent = `문제 ${state.round}. 이 장면의 명대사는 무엇일까요?`;
-  prompt.textContent = "팀원들과 먼저 맞혀본 뒤 정답 보기 버튼으로 확인하세요.";
+  prompt.hidden = true;
   answerPanel.hidden = true;
   answerQuote.textContent = "";
   answerMovie.textContent = "";
@@ -137,6 +137,7 @@ function showCompletionState() {
 
   stageTitle.textContent = "모든 문제가 끝났습니다";
   prompt.textContent = "새 라운드를 시작하려면 다시 시작 버튼을 눌러 주세요.";
+  prompt.hidden = false;
 
   answerPanel.hidden = true;
   answerQuote.textContent = "";
