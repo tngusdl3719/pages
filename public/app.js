@@ -2,30 +2,6 @@ const imageBase = "./images/movie-quiz";
 
 const quizzes = [
   {
-    movie: "타이타닉",
-    quote: "나 세상의 왕이야!",
-    image: `${imageBase}/sunset-ship.svg`,
-    alt: "석양 아래 거대한 배의 뱃머리에 선 두 사람의 실루엣",
-  },
-  {
-    movie: "대부",
-    quote: "그가 거절할 수 없는 제안을 하지.",
-    image: `${imageBase}/don-study.svg`,
-    alt: "어두운 서재에서 책상과 램프가 놓인 장면을 닮은 일러스트",
-  },
-  {
-    movie: "포레스트 검프",
-    quote: "인생은 초콜릿 상자 같은 거야. 열어보기 전엔 모르는 거지.",
-    image: `${imageBase}/bench-feather.svg`,
-    alt: "벤치와 날아가는 깃털이 있는 공원 풍경 일러스트",
-  },
-  {
-    movie: "다크 나이트",
-    quote: "왜 이렇게 진지해?",
-    image: `${imageBase}/joker-night.svg`,
-    alt: "도시 야경과 카드 문양을 연상시키는 밤 장면 일러스트",
-  },
-  {
     movie: "타짜",
     quote: "묻고 더블로 가!",
     image: `${imageBase}/card-table.svg`,
