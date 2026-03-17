@@ -116,8 +116,8 @@ function resetAnswerPanel() {
   answerMovie.textContent = "";
 }
 
-function updateScore() {
-  scoreCount.textContent = String(state.score);
+function updateScore({ reveal = false } = {}) {
+  scoreCount.textContent = reveal ? `${state.score}개` : "-";
 }
 
 function showQuiz(index) {
@@ -141,6 +141,7 @@ function showQuiz(index) {
   nextButton.disabled = false;
   startButton.textContent = "처음부터 다시 시작";
 
+  updateScore();
   updateStaticLabels();
 }
 
@@ -153,9 +154,9 @@ function showCompletionState() {
   sceneImage.alt = "";
 
   placeholder.classList.add("finish-state");
-  placeholderTicket.textContent = "The End";
-  placeholderTitle.textContent = "끝!";
-  placeholderCopy.textContent = "모든 문제를 사용했습니다. 다시 시작 버튼으로 새 라운드를 시작하세요.";
+  placeholderTicket.textContent = "Result";
+  placeholderTitle.textContent = `${state.score}개 정답`;
+  placeholderCopy.textContent = `${quizzes.length}문제 중 ${state.score}문제를 맞혔습니다. 다시 시작 버튼으로 새 라운드를 시작하세요.`;
   placeholder.hidden = false;
 
   stageTitle.textContent = "모든 문제가 끝났습니다";
@@ -171,6 +172,7 @@ function showCompletionState() {
 
   gameStatus.textContent = "종료";
   remainingPill.textContent = "모든 문제 완료";
+  updateScore({ reveal: true });
 }
 
 function drawRandomQuiz({ reset = false } = {}) {
@@ -212,7 +214,6 @@ function scoreCorrectAnswer() {
   state.score += 1;
   state.isCurrentScored = true;
   correctButton.disabled = true;
-  updateScore();
 }
 
 startButton.addEventListener("click", () => {
