@@ -3,95 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>영화 명대사 퀴즈</title>
+    <title>워크숍 퀴즈 메인</title>
     <meta
       name="description"
-      content="회사 워크숍에서 쓰기 좋은 랜덤 영화 명대사 퀴즈 게임 페이지입니다."
+      content="회사 워크숍용 영화 명대사 맞추기와 드라마/영화 초성게임 메인 페이지입니다."
     />
     <link rel="stylesheet" href="./styles.css" />
-    <script defer src="./app.js"></script>
   </head>
-  <body>
+  <body class="page-home">
     <div class="page-shell">
-      <header class="marquee">
-        <div class="marquee-copy">
-          <p class="eyebrow">Workshop Edition</p>
-          <h1 class="hero-title">
-            <span class="title-line">영화 명대사</span>
-            <span class="title-line">퀴즈</span>
-          </h1>
-          <p class="intro">
-            시작 버튼을 누르면 준비된 문제 중 하나가 랜덤으로 등장합니다.
-            장면 이미지를 보고 명대사를 먼저 맞혀본 뒤, 하단의
-            <strong>정답 보기</strong> 버튼으로 답을 확인하세요.
-          </p>
-        </div>
-
-        <div class="scoreboard" aria-label="게임 현황">
-          <article class="stat-card">
-            <p class="stat-label">준비된 문제</p>
-            <strong class="stat-value" id="total-count">0</strong>
-          </article>
-          <article class="stat-card">
-            <p class="stat-label">현재 상태</p>
-            <strong class="stat-value stat-small" id="game-status">대기 중</strong>
-          </article>
-          <article class="stat-card">
-            <p class="stat-label">진행 방식</p>
-            <strong class="stat-value stat-small">중복 없이 랜덤</strong>
-          </article>
-        </div>
+      <header class="home-hero">
+        <p class="eyebrow">Workshop Quiz Lobby</p>
+        <h1 class="home-title">워크숍 퀴즈</h1>
+        <p class="intro">
+          진행할 게임을 선택하세요. 각 퀴즈는 메인으로 다시 돌아올 수 있게
+          분리해 두었습니다.
+        </p>
       </header>
 
-      <main class="layout">
-        <section class="game-board">
-          <div class="section-head">
-            <div>
-              <p class="section-label">Now Showing</p>
-              <h2 id="stage-title">시작 버튼을 눌러 첫 문제를 뽑아보세요</h2>
-            </div>
-            <div class="status-pill" id="remaining-pill">문제 준비 완료</div>
-          </div>
-
-          <div class="screen-frame">
-            <div class="screen-glow"></div>
-            <img
-              class="scene-image"
-              id="scene-image"
-              alt=""
-              hidden
-            />
-            <div class="screen-placeholder" id="placeholder">
-              <p class="placeholder-ticket" id="placeholder-ticket">Scene Cue</p>
-              <p class="placeholder-title" id="placeholder-title">이 장면의 명대사를 맞혀보세요</p>
-              <p class="placeholder-copy" id="placeholder-copy">
-                퀴즈가 시작되면 장면 이미지 한 장이 이 스크린에 나타납니다.
-              </p>
-            </div>
-          </div>
-
-          <p class="prompt" id="prompt">
-            랜덤 장면이 준비되면 아래에서 정답을 확인할 수 있습니다.
+      <main class="selector-grid">
+        <a class="selector-card" href="./movie-quote.html">
+          <p class="selector-kicker">Quiz 01</p>
+          <h2>영화 명대사 맞추기</h2>
+          <p class="selector-copy">
+            장면 이미지를 보고 영화 명대사를 맞히는 랜덤 퀴즈입니다.
           </p>
+          <span class="selector-action">바로 시작</span>
+        </a>
 
-          <div class="control-row">
-            <button class="button primary" id="start-button" type="button">
-              게임 시작
-            </button>
-            <button class="button secondary" id="answer-button" type="button" disabled>
-              정답 보기
-            </button>
-            <button class="button tertiary" id="next-button" type="button" disabled>
-              다른 문제
-            </button>
-          </div>
-
-          <section class="answer-panel" id="answer-panel" hidden aria-live="polite">
-            <p class="answer-label">정답 공개</p>
-            <p class="answer-quote" id="answer-quote"></p>
-            <p class="answer-movie" id="answer-movie"></p>
-          </section>
-        </section>
+        <a class="selector-card" href="./initial-quiz.html">
+          <p class="selector-kicker">Quiz 02</p>
+          <h2>드라마/영화 초성게임</h2>
+          <p class="selector-copy">
+            초성 힌트를 보고 제목을 맞힌 뒤 정답 제목과 이미지를 확인합니다.
+          </p>
+          <span class="selector-action">바로 시작</span>
+        </a>
       </main>
     </div>
   </body>

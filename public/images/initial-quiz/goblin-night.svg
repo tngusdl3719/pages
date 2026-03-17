@@ -1,0 +1,17 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#F7F1EC"/>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <circle cx="1232" cy="174" r="96" fill="#F3E7C9"/>
+  <path d="M0 660C248 610 452 602 666 636C880 670 1068 736 1292 718C1404 708 1508 688 1600 658V900H0V660Z" fill="#2A3B45"/>
+  <path d="M314 746C438 620 598 586 740 640C882 694 980 804 1082 900H176C220 852 254 808 314 746Z" fill="#5E453D"/>
+  <path d="M796 414C838 358 918 366 954 430C978 474 972 540 924 582C886 614 838 640 794 688C764 606 746 562 744 510C742 470 756 444 796 414Z" fill="#F0F2F7"/>
+  <path d="M1086 646C1124 592 1208 592 1246 646L1288 706H1044L1086 646Z" fill="#FF8B4A"/>
+  <rect x="1140" y="526" width="52" height="144" rx="26" fill="#FFF2D3"/>
+  <path d="M282 252C330 212 402 224 432 292C454 340 442 404 394 442C352 474 316 502 270 554C248 462 238 412 242 356C246 318 252 278 282 252Z" fill="#E25B44"/>
+  <defs>
+    <linearGradient id="sky" x1="800" y1="0" x2="800" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#23303E"/>
+      <stop offset="1" stop-color="#5F5C7C"/>
+    </linearGradient>
+  </defs>
+</svg>
