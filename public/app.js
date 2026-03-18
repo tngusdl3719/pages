@@ -12,6 +12,7 @@ const quizzes = [
     quote: "너는 다 계획이 있구나",
     image: `${imageBase}/parasite-plan.png`,
     alt: "영화 기생충의 장면을 담은 퀴즈 이미지",
+    videoEmbed: "https://www.youtube.com/embed/-Ysf0_EvgEc?start=13&autoplay=1&playsinline=1&rel=0",
   },
 ];
 
@@ -21,6 +22,7 @@ const scoreCount = document.querySelector("#score-count");
 const stageTitle = document.querySelector("#stage-title");
 const remainingPill = document.querySelector("#remaining-pill");
 const sceneImage = document.querySelector("#scene-image");
+const sceneVideo = document.querySelector("#scene-video");
 const placeholder = document.querySelector("#placeholder");
 const placeholderTicket = document.querySelector("#placeholder-ticket");
 const placeholderTitle = document.querySelector("#placeholder-title");
@@ -70,6 +72,12 @@ function updateStaticLabels() {
   remainingPill.textContent = getRemainingLabel();
 }
 
+function resetSceneVideo() {
+  sceneVideo.hidden = true;
+  sceneVideo.removeAttribute("src");
+  sceneVideo.title = "";
+}
+
 function restorePlaceholder() {
   placeholder.classList.remove("finish-state");
   placeholderTicket.textContent = defaultPlaceholder.ticket;
@@ -96,6 +104,7 @@ function showQuiz(index) {
   state.isCurrentScored = false;
 
   restorePlaceholder();
+  resetSceneVideo();
   sceneImage.src = quiz.image;
   sceneImage.alt = quiz.alt;
   sceneImage.hidden = false;
@@ -119,6 +128,7 @@ function showCompletionState() {
   state.currentQuiz = null;
   state.isCurrentScored = false;
 
+  resetSceneVideo();
   sceneImage.hidden = true;
   sceneImage.removeAttribute("src");
   sceneImage.alt = "";
@@ -175,6 +185,15 @@ function revealAnswer() {
   answerQuote.textContent = `“${state.currentQuiz.quote}”`;
   answerMovie.textContent = `영화: ${state.currentQuiz.movie}`;
   gameStatus.textContent = `정답 공개 ${state.round}`;
+
+  if (state.currentQuiz.videoEmbed) {
+    sceneImage.hidden = true;
+    sceneImage.removeAttribute("src");
+    sceneImage.alt = "";
+    sceneVideo.src = state.currentQuiz.videoEmbed;
+    sceneVideo.title = `${state.currentQuiz.movie} 정답 영상`;
+    sceneVideo.hidden = false;
+  }
 }
 
 function scoreCorrectAnswer() {

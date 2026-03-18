@@ -9,6 +9,7 @@
       content="회사 워크숍에서 쓰기 좋은 랜덤 영화 명대사 퀴즈 게임 페이지입니다."
     />
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./movie-quote.css" />
     <script defer src="./app.js"></script>
   </head>
   <body class="page-quiz">
@@ -60,6 +61,15 @@
           <div class="screen-frame">
             <div class="screen-glow"></div>
             <img class="scene-image" id="scene-image" alt="" hidden />
+            <iframe
+              class="scene-video"
+              id="scene-video"
+              title=""
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+              hidden
+            ></iframe>
             <div class="screen-placeholder" id="placeholder">
               <p class="placeholder-ticket" id="placeholder-ticket">Scene Cue</p>
               <p class="placeholder-title" id="placeholder-title">이 장면의 명대사를 맞혀보세요</p>
