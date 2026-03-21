@@ -69,6 +69,8 @@ function broadcastState() {
       totalCount: quizzes.length,
       gameStatus: gameStatus.textContent,
       startLabel: startButton.textContent.trim(),
+      currentIndex: state.currentQuiz ? quizzes.indexOf(state.currentQuiz) : -1,
+      quizList: quizzes.map((q, i) => ({ index: i, movie: q.movie, quote: q.quote })),
       buttons: {
         answer: !answerButton.disabled,
         correct: !correctButton.disabled,
@@ -251,6 +253,19 @@ channel.onmessage = ({ data: msg }) => {
     case "correct": scoreCorrectAnswer(); break;
     case "next": drawRandomQuiz(); break;
     case "end": showCompletionState(); break;
+    case "selectQuiz": {
+      const idx = msg.index;
+      if (typeof idx !== "number" || idx < 0 || idx >= quizzes.length) break;
+      if (state.round === 0) {
+        refillPool();
+        state.score = 0;
+        updateScore();
+      }
+      const poolIdx = state.pool.indexOf(idx);
+      if (poolIdx !== -1) state.pool.splice(poolIdx, 1);
+      showQuiz(idx);
+      break;
+    }
   }
 };
 
