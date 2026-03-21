@@ -7,16 +7,18 @@
     <link rel="stylesheet" href="./styles.css" />
     <style>
       .ctrl-shell {
-        min-height: 100dvh;
+        height: 100dvh;
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
-        padding: 1.5rem 1rem 2rem;
+        gap: 1rem;
+        padding: 1.25rem 1rem;
         max-width: 480px;
         margin: 0 auto;
+        overflow: hidden;
       }
 
       .ctrl-header {
+        flex-shrink: 0;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -49,27 +51,39 @@
       }
 
       .ctrl-stats {
+        flex-shrink: 0;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 0.75rem;
       }
 
       .ctrl-buttons {
+        flex-shrink: 0;
         display: flex;
         flex-direction: column;
-        gap: 0.75rem;
+        gap: 0.5rem;
       }
 
       .ctrl-buttons .button {
         width: 100%;
-        padding: 1rem;
-        font-size: 1.05rem;
+        padding: 0.875rem;
+        font-size: 1rem;
       }
 
       /* 문제 선택 리스트 */
       .quiz-list-section {
+        flex: 1;
+        min-height: 0;
         display: flex;
         flex-direction: column;
+        gap: 0.5rem;
+        overflow: hidden;
+      }
+
+      .quiz-list-top {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
         gap: 0.75rem;
       }
 
@@ -80,26 +94,53 @@
         text-transform: uppercase;
         color: var(--muted);
         margin: 0;
+        white-space: nowrap;
+      }
+
+      .quiz-search {
+        flex: 1;
+        padding: 0.4rem 0.7rem;
+        border: 1.5px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface);
+        color: var(--text);
+        font-size: 0.85rem;
+        outline: none;
+        min-width: 0;
+      }
+
+      .quiz-search:focus {
+        border-color: var(--accent-strong);
+      }
+
+      .quiz-search::placeholder {
+        color: var(--muted);
       }
 
       .quiz-list {
+        flex: 1;
+        min-height: 0;
+        overflow-y: auto;
         list-style: none;
         margin: 0;
-        padding: 0;
+        padding: 0 0 0.5rem;
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+        scrollbar-width: thin;
+        scrollbar-color: var(--border) transparent;
       }
 
       .quiz-item {
         display: flex;
         align-items: center;
         gap: 0.75rem;
-        padding: 0.75rem 0.875rem;
+        padding: 0.65rem 0.875rem;
         border-radius: 10px;
         border: 1.5px solid var(--border);
         background: var(--surface);
         transition: border-color 180ms ease, background 180ms ease;
+        flex-shrink: 0;
       }
 
       .quiz-item--active {
@@ -131,7 +172,7 @@
         min-width: 0;
         display: flex;
         flex-direction: column;
-        gap: 0.2rem;
+        gap: 0.15rem;
       }
 
       .quiz-item-movie {
@@ -144,7 +185,7 @@
       }
 
       .quiz-item-quote {
-        font-size: 0.8rem;
+        font-size: 0.78rem;
         color: var(--muted);
         white-space: nowrap;
         overflow: hidden;
@@ -153,7 +194,7 @@
 
       .quiz-item-select {
         flex-shrink: 0;
-        padding: 0.35rem 0.75rem;
+        padding: 0.3rem 0.7rem;
         font-size: 0.8rem;
       }
 
@@ -161,11 +202,11 @@
         font-size: 0.85rem;
         color: var(--muted);
         text-align: center;
-        padding: 1rem 0;
+        padding: 1.5rem 0;
       }
 
       .ctrl-nav {
-        margin-top: auto;
+        flex-shrink: 0;
       }
     </style>
   </head>
@@ -200,9 +241,18 @@
       </div>
 
       <section class="quiz-list-section" aria-label="문제 선택">
-        <h2 class="quiz-list-heading">문제 선택</h2>
+        <div class="quiz-list-top">
+          <h2 class="quiz-list-heading">문제 선택</h2>
+          <input
+            class="quiz-search"
+            id="quiz-search"
+            type="search"
+            placeholder="영화 제목으로 검색"
+            autocomplete="off"
+          />
+        </div>
         <ul class="quiz-list" id="quiz-list">
-          <li class="quiz-list-empty" id="quiz-list-empty">디스플레이 페이지와 연결되면 문제 목록이 나타납니다</li>
+          <li class="quiz-list-empty">디스플레이 페이지와 연결되면 문제 목록이 나타납니다</li>
         </ul>
       </section>
 
@@ -223,23 +273,35 @@
       const ctrlCorrect = document.querySelector("#ctrl-correct");
       const ctrlNext = document.querySelector("#ctrl-next");
       const ctrlEnd = document.querySelector("#ctrl-end");
-      const quizList = document.querySelector("#quiz-list");
-      const quizListEmpty = document.querySelector("#quiz-list-empty");
+      const quizListEl = document.querySelector("#quiz-list");
+      const quizSearchInput = document.querySelector("#quiz-search");
+
+      let currentQuizList = [];
+      let currentActiveIndex = -1;
+      let filterText = "";
 
       function send(action, extra = {}) {
         channel.postMessage({ type: "cmd", action, ...extra });
       }
 
-      function renderQuizList(list, currentIndex) {
-        quizList.innerHTML = "";
+      function renderQuizList(list, activeIndex) {
+        quizListEl.innerHTML = "";
 
         if (!list || list.length === 0) {
-          quizList.appendChild(quizListEmpty);
+          const li = document.createElement("li");
+          li.className = "quiz-list-empty";
+          li.textContent = filterText
+            ? "검색 결과가 없습니다"
+            : "디스플레이 페이지와 연결되면 문제 목록이 나타납니다";
+          quizListEl.appendChild(li);
           return;
         }
 
+        let activeEl = null;
+
         list.forEach(({ index, movie, quote }) => {
-          const isCurrent = index === currentIndex;
+          const isCurrent = index === activeIndex;
+
           const li = document.createElement("li");
           li.className = "quiz-item" + (isCurrent ? " quiz-item--active" : "");
           li.setAttribute("aria-current", isCurrent ? "true" : "false");
@@ -250,10 +312,16 @@
 
           const infoEl = document.createElement("div");
           infoEl.className = "quiz-item-info";
-          infoEl.innerHTML = `
-            <span class="quiz-item-movie">${movie}</span>
-            <span class="quiz-item-quote">"${quote}"</span>
-          `;
+
+          const movieEl = document.createElement("span");
+          movieEl.className = "quiz-item-movie";
+          movieEl.textContent = movie;
+
+          const quoteEl = document.createElement("span");
+          quoteEl.className = "quiz-item-quote";
+          quoteEl.textContent = `"${quote}"`;
+
+          infoEl.append(movieEl, quoteEl);
 
           const btn = document.createElement("button");
           btn.className = "button secondary quiz-item-select";
@@ -263,8 +331,26 @@
           btn.addEventListener("click", () => send("selectQuiz", { index }));
 
           li.append(numEl, infoEl, btn);
-          quizList.appendChild(li);
+          quizListEl.appendChild(li);
+
+          if (isCurrent) activeEl = li;
         });
+
+        // 현재 문제로 자동 스크롤
+        if (activeEl) {
+          requestAnimationFrame(() => {
+            activeEl.scrollIntoView({ block: "nearest", behavior: "smooth" });
+          });
+        }
+      }
+
+      function filterAndRender() {
+        const filtered = filterText
+          ? currentQuizList.filter((q) =>
+              q.movie.toLowerCase().includes(filterText.toLowerCase())
+            )
+          : currentQuizList;
+        renderQuizList(filtered, currentActiveIndex);
       }
 
       function applyState(data) {
@@ -282,9 +368,16 @@
         ctrlEnd.disabled = !data.buttons.end;
 
         if (data.quizList) {
-          renderQuizList(data.quizList, data.currentIndex ?? -1);
+          currentQuizList = data.quizList;
+          currentActiveIndex = data.currentIndex ?? -1;
+          filterAndRender();
         }
       }
+
+      quizSearchInput.addEventListener("input", () => {
+        filterText = quizSearchInput.value.trim();
+        filterAndRender();
+      });
 
       channel.onmessage = ({ data: msg }) => {
         if (msg.type === "state") {
