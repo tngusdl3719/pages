@@ -14,6 +14,13 @@ const quizzes = [
     alt: "영화 기생충의 장면을 담은 퀴즈 이미지",
     videoEmbed: "https://www.youtube.com/embed/-Ysf0_EvgEc?start=13&autoplay=1&playsinline=1&rel=0",
   },
+  {
+    movie: "베테랑",
+    quote: "지금 내 기분이 그래.. 어이가 없네?",
+    image: `${imageBase}/veteran.jpg`,
+    alt: "영화 베테랑에서 유아인이 의자에 기대어 어이없다는 표정을 짓는 장면",
+    videoEmbed: "https://www.youtube.com/embed/zASuuYQFht4?start=92&autoplay=1&playsinline=1&rel=0",
+  },
 ];
 
 const totalCount = document.querySelector("#total-count");
