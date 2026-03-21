@@ -38,6 +38,8 @@ const correctButton = document.querySelector("#correct-button");
 const nextButton = document.querySelector("#next-button");
 const endButton = document.querySelector("#end-button");
 
+const channel = new BroadcastChannel("movie-quiz-ctrl");
+
 const state = {
   pool: [],
   currentQuiz: null,
@@ -58,6 +60,25 @@ const defaultAnswer = {
   label: answerLabel.textContent,
   quote: answerQuote.textContent,
 };
+
+function broadcastState() {
+  channel.postMessage({
+    type: "state",
+    data: {
+      round: state.round,
+      score: state.score,
+      totalCount: quizzes.length,
+      gameStatus: gameStatus.textContent,
+      startLabel: startButton.textContent.trim(),
+      buttons: {
+        answer: !answerButton.disabled,
+        correct: !correctButton.disabled,
+        next: !nextButton.disabled,
+        end: !endButton.disabled,
+      },
+    },
+  });
+}
 
 function refillPool() {
   state.pool = quizzes.map((_, index) => index);
@@ -122,6 +143,7 @@ function showQuiz(index) {
 
   updateScore();
   updateStaticLabels();
+  broadcastState();
 }
 
 function showCompletionState() {
@@ -154,6 +176,7 @@ function showCompletionState() {
   gameStatus.textContent = "종료";
   remainingPill.textContent = "최종 결과";
   updateScore({ reveal: true });
+  broadcastState();
 }
 
 function drawRandomQuiz({ reset = false } = {}) {
@@ -182,7 +205,7 @@ function revealAnswer() {
   answerPanel.dataset.state = "revealed";
   answerPanel.setAttribute("aria-hidden", "false");
   answerLabel.textContent = "정답 공개";
-  answerQuote.textContent = `“${state.currentQuiz.quote}”`;
+  answerQuote.textContent = `"${state.currentQuiz.quote}"`;
   answerMovie.textContent = `영화: ${state.currentQuiz.movie}`;
   gameStatus.textContent = `정답 공개 ${state.round}`;
 
@@ -194,6 +217,8 @@ function revealAnswer() {
     sceneVideo.title = `${state.currentQuiz.movie} 정답 영상`;
     sceneVideo.hidden = false;
   }
+
+  broadcastState();
 }
 
 function scoreCorrectAnswer() {
@@ -204,6 +229,7 @@ function scoreCorrectAnswer() {
   state.score += 1;
   state.isCurrentScored = true;
   correctButton.disabled = true;
+  broadcastState();
 }
 
 startButton.addEventListener("click", () => {
@@ -220,5 +246,21 @@ nextButton.addEventListener("click", () => {
 
 endButton.addEventListener("click", showCompletionState);
 
+channel.onmessage = ({ data: msg }) => {
+  if (msg.type === "requestState") {
+    broadcastState();
+    return;
+  }
+  if (msg.type !== "cmd") return;
+  switch (msg.action) {
+    case "start": drawRandomQuiz({ reset: true }); break;
+    case "revealAnswer": revealAnswer(); break;
+    case "correct": scoreCorrectAnswer(); break;
+    case "next": drawRandomQuiz(); break;
+    case "end": showCompletionState(); break;
+  }
+};
+
 updateScore();
 updateStaticLabels();
+broadcastState();

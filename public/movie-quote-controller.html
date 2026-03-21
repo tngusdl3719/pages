@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>퀴즈 컨트롤러</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <style>
+      .ctrl-shell {
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem 1rem 2rem;
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
+      .ctrl-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .ctrl-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text);
+        margin: 0;
+      }
+
+      .conn-badge {
+        font-size: 0.75rem;
+        font-weight: 600;
+        padding: 0.25rem 0.75rem;
+        border-radius: 999px;
+        white-space: nowrap;
+      }
+
+      .conn-badge[data-state="waiting"] {
+        background: color-mix(in srgb, var(--muted) 20%, transparent);
+        color: var(--muted);
+      }
+
+      .conn-badge[data-state="connected"] {
+        background: color-mix(in srgb, #4ade80 20%, transparent);
+        color: #16a34a;
+      }
+
+      .ctrl-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem;
+      }
+
+      .ctrl-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .ctrl-buttons .button {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1.05rem;
+      }
+
+      .ctrl-nav {
+        margin-top: auto;
+      }
+    </style>
+  </head>
+  <body class="page-quiz">
+    <div class="ctrl-shell">
+      <header class="ctrl-header">
+        <h1 class="ctrl-title">퀴즈 컨트롤러</h1>
+        <span class="conn-badge" id="conn-badge" data-state="waiting">대기 중</span>
+      </header>
+
+      <div class="ctrl-stats scoreboard" aria-label="게임 현황">
+        <article class="stat-card">
+          <p class="stat-label">현재 상태</p>
+          <strong class="stat-value stat-small" id="ctrl-status">대기 중</strong>
+        </article>
+        <article class="stat-card">
+          <p class="stat-label">문제</p>
+          <strong class="stat-value" id="ctrl-round">-</strong>
+        </article>
+        <article class="stat-card">
+          <p class="stat-label">정답</p>
+          <strong class="stat-value" id="ctrl-score">-</strong>
+        </article>
+      </div>
+
+      <div class="ctrl-buttons">
+        <button class="button primary" id="ctrl-start" type="button">게임 시작</button>
+        <button class="button secondary" id="ctrl-answer" type="button" disabled>정답 보기</button>
+        <button class="button tertiary" id="ctrl-correct" type="button" disabled>정답</button>
+        <button class="button tertiary" id="ctrl-next" type="button" disabled>다른 문제</button>
+        <button class="button secondary" id="ctrl-end" type="button" disabled>퀴즈 종료</button>
+      </div>
+
+      <nav class="ctrl-nav">
+        <a class="button secondary nav-button" href="./movie-quote.html" target="_blank">디스플레이 열기 ↗</a>
+      </nav>
+    </div>
+
+    <script>
+      const channel = new BroadcastChannel("movie-quiz-ctrl");
+
+      const connBadge = document.querySelector("#conn-badge");
+      const ctrlStatus = document.querySelector("#ctrl-status");
+      const ctrlRound = document.querySelector("#ctrl-round");
+      const ctrlScore = document.querySelector("#ctrl-score");
+      const ctrlStart = document.querySelector("#ctrl-start");
+      const ctrlAnswer = document.querySelector("#ctrl-answer");
+      const ctrlCorrect = document.querySelector("#ctrl-correct");
+      const ctrlNext = document.querySelector("#ctrl-next");
+      const ctrlEnd = document.querySelector("#ctrl-end");
+
+      function send(action) {
+        channel.postMessage({ type: "cmd", action });
+      }
+
+      function applyState(data) {
+        connBadge.dataset.state = "connected";
+        connBadge.textContent = "연결됨";
+
+        ctrlStatus.textContent = data.gameStatus;
+        ctrlRound.textContent = data.round > 0 ? `${data.round} / ${data.totalCount}` : "-";
+        ctrlScore.textContent = data.score > 0 || data.gameStatus === "종료" ? `${data.score}개` : "-";
+
+        ctrlStart.textContent = data.startLabel;
+        ctrlAnswer.disabled = !data.buttons.answer;
+        ctrlCorrect.disabled = !data.buttons.correct;
+        ctrlNext.disabled = !data.buttons.next;
+        ctrlEnd.disabled = !data.buttons.end;
+      }
+
+      channel.onmessage = ({ data: msg }) => {
+        if (msg.type === "state") {
+          applyState(msg.data);
+        }
+      };
+
+      ctrlStart.addEventListener("click", () => send("start"));
+      ctrlAnswer.addEventListener("click", () => send("revealAnswer"));
+      ctrlCorrect.addEventListener("click", () => send("correct"));
+      ctrlNext.addEventListener("click", () => send("next"));
+      ctrlEnd.addEventListener("click", () => send("end"));
+
+      // 페이지 로드 시 디스플레이에 현재 상태 요청
+      channel.postMessage({ type: "requestState" });
+    </script>
+  </body>
+</html>
