@@ -1,3 +1,10 @@
+.page-quiz h1.eyebrow {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  letter-spacing: 0.02em;
+  text-transform: none;
+  margin-bottom: 0;
+}
+
 .scene-video {
   position: absolute;
   inset: 0;
