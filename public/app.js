@@ -20,7 +20,6 @@ const totalCount = document.querySelector("#total-count");
 const gameStatus = document.querySelector("#game-status");
 const scoreCount = document.querySelector("#score-count");
 const stageTitle = document.querySelector("#stage-title");
-const remainingPill = document.querySelector("#remaining-pill");
 const sceneImage = document.querySelector("#scene-image");
 const sceneVideo = document.querySelector("#scene-video");
 const placeholder = document.querySelector("#placeholder");
@@ -84,13 +83,8 @@ function refillPool() {
   state.pool = quizzes.map((_, index) => index);
 }
 
-function getRemainingLabel() {
-  return `문제 ${state.round} / ${quizzes.length}`;
-}
-
 function updateStaticLabels() {
   gameStatus.textContent = state.currentQuiz ? `문제 ${state.round}` : "대기 중";
-  remainingPill.textContent = getRemainingLabel();
 }
 
 function resetSceneVideo() {
@@ -131,7 +125,7 @@ function showQuiz(index) {
   sceneImage.hidden = false;
   placeholder.hidden = true;
 
-  stageTitle.textContent = `문제 ${state.round}. 이 장면의 명대사는 무엇일까요?`;
+  stageTitle.textContent = "이 장면의 명대사는 무엇일까요?";
   prompt.hidden = true;
   resetAnswerPanel();
 
@@ -174,7 +168,6 @@ function showCompletionState() {
   startButton.textContent = "다시 시작";
 
   gameStatus.textContent = "종료";
-  remainingPill.textContent = "최종 결과";
   updateScore({ reveal: true });
   broadcastState();
 }
