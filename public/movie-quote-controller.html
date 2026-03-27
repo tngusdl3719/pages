@@ -134,6 +134,7 @@
       .quiz-item {
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
         gap: 0.75rem;
         padding: 0.65rem 0.875rem;
         border-radius: 10px;
@@ -196,6 +197,28 @@
         flex-shrink: 0;
         padding: 0.3rem 0.7rem;
         font-size: 0.8rem;
+      }
+
+      .quiz-item-tooltip {
+        display: none;
+        width: 100%;
+        margin-top: 0.1rem;
+        padding: 0.7rem 0.8rem;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 111, 61, 0.28);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 244, 236, 0.98)),
+          var(--card);
+        box-shadow: 0 12px 24px rgba(63, 41, 35, 0.08);
+        color: var(--text);
+        font-size: 0.8rem;
+        line-height: 1.55;
+        white-space: normal;
+      }
+
+      .quiz-item:hover .quiz-item-tooltip,
+      .quiz-item:focus-within .quiz-item-tooltip {
+        display: block;
       }
 
       .quiz-list-empty {
@@ -320,6 +343,8 @@
           const quoteEl = document.createElement("span");
           quoteEl.className = "quiz-item-quote";
           quoteEl.textContent = `"${quote}"`;
+          quoteEl.title = quote;
+          quoteEl.setAttribute("aria-label", quote);
 
           infoEl.append(movieEl, quoteEl);
 
@@ -331,6 +356,14 @@
           btn.addEventListener("click", () => send("selectQuiz", { index }));
 
           li.append(numEl, infoEl, btn);
+
+          if (quote.length > 24) {
+            const tooltipEl = document.createElement("div");
+            tooltipEl.className = "quiz-item-tooltip";
+            tooltipEl.textContent = quote;
+            li.appendChild(tooltipEl);
+          }
+
           quizListEl.appendChild(li);
 
           if (isCurrent) activeEl = li;
